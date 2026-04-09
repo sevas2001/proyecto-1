@@ -1,353 +1,16 @@
 {
-  "85bda839-a42d-4894-a4b0-ace6badf9ba0": {
-    "id": "85bda839-a42d-4894-a4b0-ace6badf9ba0",
-    "user": "usuario_demo",
-    "text": "Primera publicación de prueba. ¡Hola ModerApp!",
+  "e4ab1497-3c83-4a95-9568-90f28b7770ca": {
+    "id": "e4ab1497-3c83-4a95-9568-90f28b7770ca",
+    "user": "peter",
+    "text": "hola soy peter",
     "image_path": null,
-    "created_at": "2026-04-08T09:53:26.088554+00:00",
-    "status": "APROBADO",
-    "moderation_reason": "Contenido aprobado automáticamente (módulo stub).",
-    "trace": [
-      {
-        "step": "stub_inicializado",
-        "resultado": "ok",
-        "detalle": "Módulo de moderación pendiente de implementación real."
-      },
-      {
-        "step": "decision_final",
-        "resultado": "APROBADO",
-        "detalle": "Post id=85bda839-a42d-4894-a4b0-ace6badf9ba0 aprobado sin filtros."
-      }
-    ],
-    "human_review": null
-  },
-  "7d04c2d5-bff1-4987-9c77-24182cb1b6d8": {
-    "id": "7d04c2d5-bff1-4987-9c77-24182cb1b6d8",
-    "user": "usuario_demo",
-    "text": "hollaaaaaa mundo",
-    "image_path": null,
-    "created_at": "2026-04-08T09:55:33.723762+00:00",
-    "status": "APROBADO",
-    "moderation_reason": "Contenido aprobado automáticamente (módulo stub).",
-    "trace": [
-      {
-        "step": "stub_inicializado",
-        "resultado": "ok",
-        "detalle": "Módulo de moderación pendiente de implementación real."
-      },
-      {
-        "step": "decision_final",
-        "resultado": "APROBADO",
-        "detalle": "Post id=7d04c2d5-bff1-4987-9c77-24182cb1b6d8 aprobado sin filtros."
-      }
-    ],
-    "human_review": null
-  },
-  "cb118da8-7f13-4ce9-9d8c-923d7e80b8ab": {
-    "id": "cb118da8-7f13-4ce9-9d8c-923d7e80b8ab",
-    "user": "usuario_demo",
-    "text": "pene",
-    "image_path": null,
-    "created_at": "2026-04-08T09:55:41.287410+00:00",
-    "status": "APROBADO",
-    "moderation_reason": "Contenido aprobado automáticamente (módulo stub).",
-    "trace": [
-      {
-        "step": "stub_inicializado",
-        "resultado": "ok",
-        "detalle": "Módulo de moderación pendiente de implementación real."
-      },
-      {
-        "step": "decision_final",
-        "resultado": "APROBADO",
-        "detalle": "Post id=cb118da8-7f13-4ce9-9d8c-923d7e80b8ab aprobado sin filtros."
-      }
-    ],
-    "human_review": null
-  },
-  "d0585095-c50b-4c48-9ba1-37072387139a": {
-    "id": "d0585095-c50b-4c48-9ba1-37072387139a",
-    "user": "usuario_demo",
-    "text": "holaaa apepepe",
-    "image_path": null,
-    "created_at": "2026-04-08T10:02:27.485771+00:00",
-    "status": "APROBADO",
-    "moderation_reason": "Contenido aprobado automáticamente (módulo stub).",
-    "trace": [
-      {
-        "step": "stub_inicializado",
-        "resultado": "ok",
-        "detalle": "Módulo de moderación pendiente de implementación real."
-      },
-      {
-        "step": "decision_final",
-        "resultado": "APROBADO",
-        "detalle": "Post id=d0585095-c50b-4c48-9ba1-37072387139a aprobado sin filtros."
-      }
-    ],
-    "human_review": null
-  },
-  "6ee96522-06ba-43c2-98f0-eeebb22a78bb": {
-    "id": "6ee96522-06ba-43c2-98f0-eeebb22a78bb",
-    "user": "usuario_demo",
-    "text": "eres un cabron te voy a matar",
-    "image_path": null,
-    "created_at": "2026-04-09T09:06:00.354028+00:00",
-    "status": "REVISION_HUMANA",
-    "moderation_reason": "Decisión basada en fallback por error en IA: Error code: 401 - {'error': {'message': 'Incorrect API key provided: 74Sev5c5************************************************************************DXJ9. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
-    "trace": [
-      {
-        "stage": "classifier",
-        "timestamp": "2026-04-09T09:06:02.756000",
-        "output": {
-          "labels": [
-            "violencia",
-            "acoso_amenazas"
-          ],
-          "confidence": 0.4,
-          "signals": [
-            "keyword_acoso_amenazas",
-            "keyword_violencia",
-            "llm_error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: 74Sev5c5************************************************************************DXJ9. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}"
-          ]
-        }
-      },
-      {
-        "stage": "decider",
-        "timestamp": "2026-04-09T09:06:02.952890",
-        "output": {
-          "proposed_status": "REVISION_HUMANA",
-          "reason": "Decisión basada en fallback por error en IA: Error code: 401 - {'error': {'message': 'Incorrect API key provided: 74Sev5c5************************************************************************DXJ9. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}"
-        }
-      },
-      {
-        "stage": "reviewer",
-        "timestamp": "2026-04-09T09:06:03.238537",
-        "output": {
-          "final_status": "REVISION_HUMANA",
-          "risk_notes": [
-            "Error en revisión IA, usando propuesta original. Error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: 74Sev5c5************************************************************************DXJ9. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}"
-          ]
-        }
-      }
-    ],
-    "human_review": null
-  },
-  "05dec269-79d6-47c6-acb0-a5a3a3a1a8fb": {
-    "id": "05dec269-79d6-47c6-acb0-a5a3a3a1a8fb",
-    "user": "usuario_demo",
-    "text": "te voy a matar gilipollas",
-    "image_path": null,
-    "created_at": "2026-04-09T09:19:59.666042+00:00",
-    "status": "RECHAZADO",
-    "moderation_reason": "El post fue clasificado bajo la categoría 'acoso_amenazas' con una confianza de 0.98, lo que indica un riesgo alto. Según la política de umbrales, los riesgos altos (confianza >= 0.8) suelen ser rechazados. Además, la política de categorías para 'acoso_amenazas' establece que los contenidos con riesgo alto deben ser rechazados debido a la severidad alta de esta categoría. Por lo tanto, se tomó la decisión de rechazar el post para garantizar la seguridad y cumplimiento de las normas de moderación.",
-    "trace": [
-      {
-        "stage": "classifier",
-        "timestamp": "2026-04-09T09:20:03.306809",
-        "output": {
-          "labels": [
-            "acoso_amenazas"
-          ],
-          "confidence": 0.98,
-          "signals": [
-            "keyword_acoso_amenazas",
-            "frase ofensiva detectada",
-            "uso de lenguaje amenazante ('te voy a matar')",
-            "keyword_violencia"
-          ]
-        }
-      },
-      {
-        "stage": "decider",
-        "timestamp": "2026-04-09T09:20:06.344547",
-        "output": {
-          "proposed_status": "RECHAZADO",
-          "reason": "El post fue clasificado bajo la categoría 'acoso_amenazas' con una confianza de 0.98, lo que indica un riesgo alto. Según la política de umbrales, los riesgos altos (confianza >= 0.8) suelen ser rechazados. Además, la política de categorías para 'acoso_amenazas' establece que los contenidos con riesgo alto deben ser rechazados debido a la severidad alta de esta categoría. Por lo tanto, se tomó la decisión de rechazar el post para garantizar la seguridad y cumplimiento de las normas de moderación."
-        }
-      },
-      {
-        "stage": "reviewer",
-        "timestamp": "2026-04-09T09:20:08.321927",
-        "output": {
-          "final_status": "RECHAZADO",
-          "risk_notes": []
-        }
-      }
-    ],
-    "human_review": null
-  },
-  "ca0d158e-945a-4a34-a895-2760cc49ac30": {
-    "id": "ca0d158e-945a-4a34-a895-2760cc49ac30",
-    "user": "usuario_demo",
-    "text": "tengo un negocio, si te unes a este link puedes ganar mucho dinero",
-    "image_path": null,
-    "created_at": "2026-04-09T09:21:45.689209+00:00",
-    "status": "RECHAZADO",
-    "moderation_reason": "El post fue clasificado bajo la categoría 'spam_estafa' con una confianza de 0.9, lo que indica un riesgo alto. Según la política de umbrales, los posts con riesgo alto (confianza >= 0.8) suelen ser rechazados. Además, la política de categorías para 'spam_estafa' especifica que los posts con riesgo alto deben ser rechazados. Por lo tanto, se tomó la decisión de rechazar el post para mitigar el riesgo de contenido perjudicial.",
-    "trace": [
-      {
-        "stage": "classifier",
-        "timestamp": "2026-04-09T09:21:47.736852",
-        "output": {
-          "labels": [
-            "spam_estafa"
-          ],
-          "confidence": 0.9,
-          "signals": [
-            "Instrucción para unirse a un enlace sin contexto claro",
-            "Uso de lenguaje que promete ganancias rápidas"
-          ]
-        }
-      },
-      {
-        "stage": "decider",
-        "timestamp": "2026-04-09T09:21:50.095196",
-        "output": {
-          "proposed_status": "RECHAZADO",
-          "reason": "El post fue clasificado bajo la categoría 'spam_estafa' con una confianza de 0.9, lo que indica un riesgo alto. Según la política de umbrales, los posts con riesgo alto (confianza >= 0.8) suelen ser rechazados. Además, la política de categorías para 'spam_estafa' especifica que los posts con riesgo alto deben ser rechazados. Por lo tanto, se tomó la decisión de rechazar el post para mitigar el riesgo de contenido perjudicial."
-        }
-      },
-      {
-        "stage": "reviewer",
-        "timestamp": "2026-04-09T09:21:51.169783",
-        "output": {
-          "final_status": "RECHAZADO",
-          "risk_notes": []
-        }
-      }
-    ],
-    "human_review": null
-  },
-  "3a02032c-2f04-4f44-9333-38be5e5b69ca": {
-    "id": "3a02032c-2f04-4f44-9333-38be5e5b69ca",
-    "user": "usuario_demo",
-    "text": "La verdad es que este mes me estaba costando bastante llegar a fin de mes, pero probé una plataforma que me recomendaron en un foro y me sorprendió. No es el típico “hazte rico rápido”, simplemente automatiza pequeñas inversiones y en mi caso ya estoy viendo resultados. Si alguien quiere info que me escriba por privado, porque no sé si se puede poner enlaces aquí",
-    "image_path": null,
-    "created_at": "2026-04-09T09:23:35.876408+00:00",
-    "status": "RECHAZADO",
-    "moderation_reason": "El post fue clasificado bajo la categoría 'spam_estafa' con una confianza de 0.85, lo que indica un riesgo alto. Según la política de umbrales, los posts con riesgo alto (confianza >= 0.8) suelen ser rechazados. Además, la política específica para la categoría 'spam_estafa' establece que los posts con riesgo alto deben ser rechazados. Por lo tanto, se tomó la decisión de rechazar el post para mitigar el riesgo de contenido perjudicial.",
-    "trace": [
-      {
-        "stage": "classifier",
-        "timestamp": "2026-04-09T09:23:38.416383",
-        "output": {
-          "labels": [
-            "spam_estafa"
-          ],
-          "confidence": 0.85,
-          "signals": [
-            "Mención de una plataforma que automatiza inversiones sin detalles claros ('probé una plataforma que me recomendaron en un foro')",
-            "keyword_spam_estafa",
-            "Promoción indirecta con solicitud de contacto privado ('Si alguien quiere info que me escriba por privado')"
-          ]
-        }
-      },
-      {
-        "stage": "decider",
-        "timestamp": "2026-04-09T09:23:40.818314",
-        "output": {
-          "proposed_status": "RECHAZADO",
-          "reason": "El post fue clasificado bajo la categoría 'spam_estafa' con una confianza de 0.85, lo que indica un riesgo alto. Según la política de umbrales, los posts con riesgo alto (confianza >= 0.8) suelen ser rechazados. Además, la política específica para la categoría 'spam_estafa' establece que los posts con riesgo alto deben ser rechazados. Por lo tanto, se tomó la decisión de rechazar el post para mitigar el riesgo de contenido perjudicial."
-        }
-      },
-      {
-        "stage": "reviewer",
-        "timestamp": "2026-04-09T09:23:41.875845",
-        "output": {
-          "final_status": "RECHAZADO",
-          "risk_notes": []
-        }
-      }
-    ],
-    "human_review": null
-  },
-  "b671f3d3-e0f0-45b5-abe7-68c9a1395f3f": {
-    "id": "b671f3d3-e0f0-45b5-abe7-68c9a1395f3f",
-    "user": "usuario_demo",
-    "text": "Últimamente he estado probando distintas formas de organizar mis ahorros y me sorprendió una herramienta que encontré casi por casualidad. No es nada raro ni milagroso, simplemente te ayuda a optimizar pequeños movimientos que normalmente no tenemos en cuenta. En mi caso ha sido útil, sobre todo porque no requiere estar pendiente todo el día. Si alguien está en el mismo punto de querer ordenar mejor sus finanzas, puedo contarle lo que estoy usando.",
-    "image_path": null,
-    "created_at": "2026-04-09T09:24:43.658701+00:00",
+    "created_at": "2026-04-09T11:49:48.232595+00:00",
     "status": "APROBADO",
     "moderation_reason": "No se detectaron categorías de riesgo.",
     "trace": [
       {
         "stage": "classifier",
-        "timestamp": "2026-04-09T09:24:45.342065",
-        "output": {
-          "labels": [],
-          "confidence": 0.99,
-          "signals": []
-        }
-      },
-      {
-        "stage": "decider",
-        "timestamp": "2026-04-09T09:24:45.364901",
-        "output": {
-          "proposed_status": "APROBADO",
-          "reason": "No se detectaron categorías de riesgo."
-        }
-      },
-      {
-        "stage": "reviewer",
-        "timestamp": "2026-04-09T09:24:46.526968",
-        "output": {
-          "final_status": "APROBADO",
-          "risk_notes": []
-        }
-      }
-    ],
-    "human_review": null
-  },
-  "67b9b4c5-de8b-44d9-8866-fde12794ab9b": {
-    "id": "67b9b4c5-de8b-44d9-8866-fde12794ab9b",
-    "user": "usuario_demo",
-    "text": "hola papi",
-    "image_path": null,
-    "created_at": "2026-04-09T09:40:00.509198+00:00",
-    "status": "APROBADO",
-    "moderation_reason": "No se detectaron categorías de riesgo.",
-    "trace": [
-      {
-        "stage": "classifier",
-        "timestamp": "2026-04-09T09:40:02.517280",
-        "output": {
-          "labels": [],
-          "confidence": 0.99,
-          "signals": []
-        }
-      },
-      {
-        "stage": "decider",
-        "timestamp": "2026-04-09T09:40:02.541237",
-        "output": {
-          "proposed_status": "APROBADO",
-          "reason": "No se detectaron categorías de riesgo."
-        }
-      },
-      {
-        "stage": "reviewer",
-        "timestamp": "2026-04-09T09:40:03.689490",
-        "output": {
-          "final_status": "APROBADO",
-          "risk_notes": []
-        }
-      }
-    ],
-    "human_review": null
-  },
-  "bfe1a821-9fd7-41f6-b834-01f7a82ac546": {
-    "id": "bfe1a821-9fd7-41f6-b834-01f7a82ac546",
-    "user": "usuario_demo",
-    "text": "¡Increíble fin de semana en la montaña! El paisaje era espectacular y el aire súper puro. #naturaleza #relax",
-    "image_path": null,
-    "created_at": "2026-04-09T09:48:13.500033+00:00",
-    "status": "APROBADO",
-    "moderation_reason": "No se detectaron categorías de riesgo.",
-    "trace": [
-      {
-        "stage": "classifier",
-        "timestamp": "2026-04-09T09:48:14.971874",
+        "timestamp": "2026-04-09T11:49:52.776700",
         "output": {
           "labels": [],
           "confidence": 1.0,
@@ -356,7 +19,7 @@
       },
       {
         "stage": "decider",
-        "timestamp": "2026-04-09T09:48:14.981745",
+        "timestamp": "2026-04-09T11:49:52.798635",
         "output": {
           "proposed_status": "APROBADO",
           "reason": "No se detectaron categorías de riesgo."
@@ -364,7 +27,7 @@
       },
       {
         "stage": "reviewer",
-        "timestamp": "2026-04-09T09:48:16.089118",
+        "timestamp": "2026-04-09T11:49:54.030737",
         "output": {
           "final_status": "APROBADO",
           "risk_notes": []
@@ -373,345 +36,44 @@
     ],
     "human_review": null
   },
-  "c2d8d9f1-6a9d-44cd-bdbc-af2144b9300c": {
-    "id": "c2d8d9f1-6a9d-44cd-bdbc-af2144b9300c",
-    "user": "usuario_demo",
-    "text": "He probado la mejor hamburguesa de la ciudad hoy. Totalmente recomendada. ¿Alguien sabe de algún buen sitio de postres cerca?",
+  "81717dc0-3117-4688-90b8-e63f7862d0da": {
+    "id": "81717dc0-3117-4688-90b8-e63f7862d0da",
+    "user": "peter",
+    "text": "gilipollas",
     "image_path": null,
-    "created_at": "2026-04-09T09:48:27.375962+00:00",
-    "status": "APROBADO",
-    "moderation_reason": "No se detectaron categorías de riesgo.",
-    "trace": [
-      {
-        "stage": "classifier",
-        "timestamp": "2026-04-09T09:48:29.616780",
-        "output": {
-          "labels": [],
-          "confidence": 1.0,
-          "signals": []
-        }
-      },
-      {
-        "stage": "decider",
-        "timestamp": "2026-04-09T09:48:29.640026",
-        "output": {
-          "proposed_status": "APROBADO",
-          "reason": "No se detectaron categorías de riesgo."
-        }
-      },
-      {
-        "stage": "reviewer",
-        "timestamp": "2026-04-09T09:48:30.874784",
-        "output": {
-          "final_status": "APROBADO",
-          "risk_notes": []
-        }
-      }
-    ],
-    "human_review": null
-  },
-  "d0fd3568-bff9-4b06-88c0-627e5f66f3ef": {
-    "id": "d0fd3568-bff9-4b06-88c0-627e5f66f3ef",
-    "user": "usuario_demo",
-    "text": "¡Gana 5000€ al día sin salir de casa! Inversión garantizada con Bitcoin. Solo hoy, haz click aquí: http://cripto-estafa.com/rico-ya",
-    "image_path": null,
-    "created_at": "2026-04-09T09:48:45.923925+00:00",
-    "status": "RECHAZADO",
-    "moderation_reason": "El post fue clasificado como 'spam_estafa' con una confianza de 0.98, lo que indica un riesgo alto. Según la política de umbrales, los posts con riesgo alto (confianza >= 0.8) suelen ser rechazados. Además, la política de categorías para 'spam_estafa' establece que los posts con riesgo alto deben ser rechazados. Por lo tanto, se tomó la decisión de rechazar el post para mitigar riesgos asociados con contenido potencialmente dañino o engañoso.",
-    "trace": [
-      {
-        "stage": "classifier",
-        "timestamp": "2026-04-09T09:48:48.649341",
-        "output": {
-          "labels": [
-            "spam_estafa"
-          ],
-          "confidence": 0.98,
-          "signals": [
-            "regex_spam_estafa",
-            "keyword_spam_estafa",
-            "Referencia a una inversión garantizada con Bitcoin",
-            "Promesa irreal de ganar 5000€ al día sin salir de casa",
-            "Enlace sospechoso: http://cripto-estafa.com/rico-ya"
-          ]
-        }
-      },
-      {
-        "stage": "decider",
-        "timestamp": "2026-04-09T09:48:51.528303",
-        "output": {
-          "proposed_status": "RECHAZADO",
-          "reason": "El post fue clasificado como 'spam_estafa' con una confianza de 0.98, lo que indica un riesgo alto. Según la política de umbrales, los posts con riesgo alto (confianza >= 0.8) suelen ser rechazados. Además, la política de categorías para 'spam_estafa' establece que los posts con riesgo alto deben ser rechazados. Por lo tanto, se tomó la decisión de rechazar el post para mitigar riesgos asociados con contenido potencialmente dañino o engañoso."
-        }
-      },
-      {
-        "stage": "reviewer",
-        "timestamp": "2026-04-09T09:48:53.446898",
-        "output": {
-          "final_status": "RECHAZADO",
-          "risk_notes": []
-        }
-      }
-    ],
-    "human_review": null
-  },
-  "ba5fd33d-06d5-4f53-bf36-c45e5640434a": {
-    "id": "ba5fd33d-06d5-4f53-bf36-c45e5640434a",
-    "user": "usuario_demo",
-    "text": "Eres un absoluto desperdicio de espacio, no entiendo cómo alguien puede seguirte. Deberías borrar tu cuenta, maldita escoria.",
-    "image_path": null,
-    "created_at": "2026-04-09T09:49:03.446328+00:00",
-    "status": "RECHAZADO",
-    "moderation_reason": "El post fue clasificado bajo la categoría 'acoso_amenazas' con una confianza de 0.95, lo que indica un riesgo alto. Según la política de umbrales, los riesgos altos (confianza >= 0.8) suelen ser rechazados. Además, la política de categorías para 'acoso_amenazas' establece que los contenidos con riesgo alto deben ser rechazados debido a la gravedad de la categoría y su impacto potencial. Por lo tanto, se decidió rechazar el post para garantizar la seguridad y cumplimiento de las normas de moderación.",
-    "trace": [
-      {
-        "stage": "classifier",
-        "timestamp": "2026-04-09T09:49:05.955989",
-        "output": {
-          "labels": [
-            "acoso_amenazas"
-          ],
-          "confidence": 0.95,
-          "signals": [
-            "No entiendo cómo alguien puede seguirte",
-            "keyword_odio",
-            "Eres un absoluto desperdicio de espacio",
-            "Deberías borrar tu cuenta, maldita escoria"
-          ]
-        }
-      },
-      {
-        "stage": "decider",
-        "timestamp": "2026-04-09T09:49:08.435153",
-        "output": {
-          "proposed_status": "RECHAZADO",
-          "reason": "El post fue clasificado bajo la categoría 'acoso_amenazas' con una confianza de 0.95, lo que indica un riesgo alto. Según la política de umbrales, los riesgos altos (confianza >= 0.8) suelen ser rechazados. Además, la política de categorías para 'acoso_amenazas' establece que los contenidos con riesgo alto deben ser rechazados debido a la gravedad de la categoría y su impacto potencial. Por lo tanto, se decidió rechazar el post para garantizar la seguridad y cumplimiento de las normas de moderación."
-        }
-      },
-      {
-        "stage": "reviewer",
-        "timestamp": "2026-04-09T09:49:09.975256",
-        "output": {
-          "final_status": "RECHAZADO",
-          "risk_notes": []
-        }
-      }
-    ],
-    "human_review": null
-  },
-  "31ef7106-7542-4b55-8fad-67d787b906c4": {
-    "id": "31ef7106-7542-4b55-8fad-67d787b906c4",
-    "user": "usuario_demo",
-    "text": "Te voy a buscar a tu casa y vas a pagar por lo que hiciste. Sé dónde vives y no vas a poder escapar.",
-    "image_path": null,
-    "created_at": "2026-04-09T09:49:20.133488+00:00",
-    "status": "RECHAZADO",
-    "moderation_reason": "El post fue clasificado bajo la categoría 'acoso_amenazas' con una confianza de 0.98, lo que indica un riesgo alto. Según la política de umbrales, los riesgos altos (confianza >= 0.8) suelen ser rechazados. Además, la política de categorías especifica que para la categoría 'acoso_amenazas' y un nivel de riesgo alto, la acción correspondiente es 'RECHAZADO'. Por lo tanto, se tomó esta decisión para garantizar la seguridad y cumplimiento de las normas de moderación.",
-    "trace": [
-      {
-        "stage": "classifier",
-        "timestamp": "2026-04-09T09:49:22.641431",
-        "output": {
-          "labels": [
-            "acoso_amenazas"
-          ],
-          "confidence": 0.98,
-          "signals": [
-            "'No vas a poder escapar' refuerza el tono amenazante",
-            "'Te voy a buscar a tu casa' implica una amenaza directa",
-            "keyword_acoso_amenazas",
-            "'Sé dónde vives' sugiere intimidación y acoso"
-          ]
-        }
-      },
-      {
-        "stage": "decider",
-        "timestamp": "2026-04-09T09:49:25.685369",
-        "output": {
-          "proposed_status": "RECHAZADO",
-          "reason": "El post fue clasificado bajo la categoría 'acoso_amenazas' con una confianza de 0.98, lo que indica un riesgo alto. Según la política de umbrales, los riesgos altos (confianza >= 0.8) suelen ser rechazados. Además, la política de categorías especifica que para la categoría 'acoso_amenazas' y un nivel de riesgo alto, la acción correspondiente es 'RECHAZADO'. Por lo tanto, se tomó esta decisión para garantizar la seguridad y cumplimiento de las normas de moderación."
-        }
-      },
-      {
-        "stage": "reviewer",
-        "timestamp": "2026-04-09T09:49:27.318698",
-        "output": {
-          "final_status": "RECHAZADO",
-          "risk_notes": []
-        }
-      }
-    ],
-    "human_review": null
-  },
-  "a7028854-483b-4363-b168-390cbe8c5e36": {
-    "id": "a7028854-483b-4363-b168-390cbe8c5e36",
-    "user": "usuario_demo",
-    "text": "Hola Pedro, te paso mi teléfono para que me llames y coordinemos lo de la cena: 677889900. ¡Hablamos!",
-    "image_path": null,
-    "created_at": "2026-04-09T09:49:59.505870+00:00",
-    "status": "REVISION_HUMANA",
-    "moderation_reason": "El post fue clasificado bajo la categoría 'datos_personales' con una confianza alta (0.98). Según la política, esta categoría tiene una severidad alta, pero la acción asignada para todos los niveles de riesgo (bajo, medio y alto) es 'REVISION_HUMANA'. Esto se debe a la naturaleza sensible de los datos personales, que requiere una evaluación humana para confirmar la presencia de información privada y determinar la acción adecuada.",
-    "trace": [
-      {
-        "stage": "classifier",
-        "timestamp": "2026-04-09T09:50:02.047221",
-        "output": {
-          "labels": [
-            "datos_personales"
-          ],
-          "confidence": 0.98,
-          "signals": [
-            "regex_datos_personales",
-            "Incluye un número de teléfono personal"
-          ]
-        }
-      },
-      {
-        "stage": "decider",
-        "timestamp": "2026-04-09T09:50:05.443521",
-        "output": {
-          "proposed_status": "REVISION_HUMANA",
-          "reason": "El post fue clasificado bajo la categoría 'datos_personales' con una confianza alta (0.98). Según la política, esta categoría tiene una severidad alta, pero la acción asignada para todos los niveles de riesgo (bajo, medio y alto) es 'REVISION_HUMANA'. Esto se debe a la naturaleza sensible de los datos personales, que requiere una evaluación humana para confirmar la presencia de información privada y determinar la acción adecuada."
-        }
-      },
-      {
-        "stage": "reviewer",
-        "timestamp": "2026-04-09T09:50:08.248501",
-        "output": {
-          "final_status": "REVISION_HUMANA",
-          "risk_notes": [
-            "Presencia de datos personales sensibles identificados con alta confianza (0.98).",
-            "La naturaleza sensible de los datos personales requiere confirmación humana para garantizar una evaluación precisa y evitar posibles errores.",
-            "Activado por regla de seguridad de confianza/datos."
-          ]
-        }
-      }
-    ],
-    "human_review": null
-  },
-  "7a2418ea-1582-4226-b0b2-19129da057aa": {
-    "id": "7a2418ea-1582-4226-b0b2-19129da057aa",
-    "user": "usuario_demo",
-    "text": "Uff, sí, me encanta que me ignoren durante tres días. Es mi actividad favorita del mundo. Sigue así, campeón.",
-    "image_path": null,
-    "created_at": "2026-04-09T09:50:12.486481+00:00",
-    "status": "APROBADO",
-    "moderation_reason": "No se detectaron categorías de riesgo.",
-    "trace": [
-      {
-        "stage": "classifier",
-        "timestamp": "2026-04-09T09:50:13.600765",
-        "output": {
-          "labels": [],
-          "confidence": 0.98,
-          "signals": []
-        }
-      },
-      {
-        "stage": "decider",
-        "timestamp": "2026-04-09T09:50:13.623492",
-        "output": {
-          "proposed_status": "APROBADO",
-          "reason": "No se detectaron categorías de riesgo."
-        }
-      },
-      {
-        "stage": "reviewer",
-        "timestamp": "2026-04-09T09:50:14.697874",
-        "output": {
-          "final_status": "APROBADO",
-          "risk_notes": []
-        }
-      }
-    ],
-    "human_review": null
-  },
-  "bfefcd98-3f7d-463e-8f7a-0f37208124c2": {
-    "id": "bfefcd98-3f7d-463e-8f7a-0f37208124c2",
-    "user": "usuario_demo",
-    "text": "Si quieres los archivos, escríbeme a mi correo privado: contacto_secreto@gmail.com",
-    "image_path": null,
-    "created_at": "2026-04-09T09:50:25.136348+00:00",
-    "status": "REVISION_HUMANA",
-    "moderation_reason": "El post fue clasificado bajo la categoría 'datos_personales' con una confianza de 0.85, lo que indica un riesgo alto. Según la política de categorías, la acción para 'datos_personales' en todos los niveles de severidad, incluyendo el nivel alto, es 'REVISION_HUMANA'. Esto se debe a la naturaleza sensible de los datos personales, que requiere una evaluación humana para confirmar la presencia de información privada antes de tomar una decisión definitiva.",
-    "trace": [
-      {
-        "stage": "classifier",
-        "timestamp": "2026-04-09T09:50:27.069558",
-        "output": {
-          "labels": [
-            "datos_personales"
-          ],
-          "confidence": 0.85,
-          "signals": [
-            "Incluye un correo electrónico privado",
-            "regex_datos_personales"
-          ]
-        }
-      },
-      {
-        "stage": "decider",
-        "timestamp": "2026-04-09T09:50:29.853446",
-        "output": {
-          "proposed_status": "REVISION_HUMANA",
-          "reason": "El post fue clasificado bajo la categoría 'datos_personales' con una confianza de 0.85, lo que indica un riesgo alto. Según la política de categorías, la acción para 'datos_personales' en todos los niveles de severidad, incluyendo el nivel alto, es 'REVISION_HUMANA'. Esto se debe a la naturaleza sensible de los datos personales, que requiere una evaluación humana para confirmar la presencia de información privada antes de tomar una decisión definitiva."
-        }
-      },
-      {
-        "stage": "reviewer",
-        "timestamp": "2026-04-09T09:50:32.341697",
-        "output": {
-          "final_status": "REVISION_HUMANA",
-          "risk_notes": [
-            "La clasificación indica una alta confianza (0.85) en la presencia de datos personales sensibles, específicamente un correo electrónico privado.",
-            "La naturaleza sensible de los datos personales requiere confirmación humana para evitar errores en la moderación automatizada.",
-            "Activado por regla de seguridad de confianza/datos."
-          ]
-        }
-      }
-    ],
-    "human_review": null
-  },
-  "10ee14de-fad3-4be6-8eac-a4ef69262581": {
-    "id": "10ee14de-fad3-4be6-8eac-a4ef69262581",
-    "user": "usuario_demo",
-    "text": "voy a dispararte cuando te vea",
-    "image_path": null,
-    "created_at": "2026-04-09T10:25:37.067754+00:00",
+    "created_at": "2026-04-09T11:50:14.162701+00:00",
     "status": "REVISIÓN_HUMANA",
-    "moderation_reason": "El post está clasificado bajo la categoría 'violencia', que tiene una severidad alta según la política. Aunque la confianza detectada es de 0.5, lo que indica un riesgo medio, la política establece que para categorías de severidad alta, el estado final debe ser 'RECHAZADO' en casos de riesgo medio o alto. Esto se hace para priorizar la seguridad y prevenir contenido violento en la plataforma.",
+    "moderation_reason": "El post fue clasificado bajo la categoría 'odio' con una confianza de 0.85, lo que indica un riesgo alto. Según la política de umbrales, los posts con riesgo alto suelen ser rechazados. Además, la política de categorías para 'odio' establece que cualquier contenido con riesgo alto debe ser rechazado debido a la severidad de esta categoría, que es 'high'. Por lo tanto, se tomó la decisión de rechazar el post para evitar la propagación de contenido dañino y discriminatorio.",
     "trace": [
       {
         "stage": "classifier",
-        "timestamp": "2026-04-09T10:25:40.675370",
+        "timestamp": "2026-04-09T11:50:16.234586",
         "output": {
           "labels": [
-            "violencia"
+            "odio"
           ],
-          "confidence": 0.5,
+          "confidence": 0.85,
           "signals": [
-            "keyword_violencia",
-            "regex_violencia",
-            "llm_error: Error code: 400 - {'error': {'message': \"The response was filtered due to the prompt triggering Azure OpenAI's content management policy. Please modify your prompt and retry. To learn more about our content filtering policies please read our documentation: https://go.microsoft.com/fwlink/?linkid=2198766\", 'type': None, 'param': 'prompt', 'code': 'content_filter', 'status': 400, 'innererror': {'code': 'ResponsibleAIPolicyViolation', 'content_filter_result': {'hate': {'filtered': False, 'severity': 'safe'}, 'jailbreak': {'filtered': False, 'detected': False}, 'self_harm': {'filtered': False, 'severity': 'safe'}, 'sexual': {'filtered': False, 'severity': 'safe'}, 'violence': {'filtered': True, 'severity': 'medium'}}}}}"
+            "uso de término ofensivo ('gilipollas') que puede denotar desprecio o insulto"
           ]
         }
       },
       {
         "stage": "decider",
-        "timestamp": "2026-04-09T10:25:43.692849",
+        "timestamp": "2026-04-09T11:50:19.374202",
         "output": {
           "proposed_status": "RECHAZADO",
-          "reason": "El post está clasificado bajo la categoría 'violencia', que tiene una severidad alta según la política. Aunque la confianza detectada es de 0.5, lo que indica un riesgo medio, la política establece que para categorías de severidad alta, el estado final debe ser 'RECHAZADO' en casos de riesgo medio o alto. Esto se hace para priorizar la seguridad y prevenir contenido violento en la plataforma."
+          "reason": "El post fue clasificado bajo la categoría 'odio' con una confianza de 0.85, lo que indica un riesgo alto. Según la política de umbrales, los posts con riesgo alto suelen ser rechazados. Además, la política de categorías para 'odio' establece que cualquier contenido con riesgo alto debe ser rechazado debido a la severidad de esta categoría, que es 'high'. Por lo tanto, se tomó la decisión de rechazar el post para evitar la propagación de contenido dañino y discriminatorio."
         }
       },
       {
         "stage": "reviewer",
-        "timestamp": "2026-04-09T10:25:45.885861",
+        "timestamp": "2026-04-09T11:50:23.756540",
         "output": {
           "final_status": "REVISIÓN_HUMANA",
           "risk_notes": [
-            "La confianza detectada es de 0.5, lo que indica incertidumbre en el contexto y la clasificación.",
-            "El error del LLM sugiere que el contenido fue filtrado automáticamente, lo que podría indicar ambigüedad o complejidad en el análisis del tono o contexto."
+            "El término ofensivo 'gilipollas' puede variar en severidad dependiendo del contexto cultural o del tono, lo que introduce ambigüedad en el tono.",
+            "La IA no proporciona suficiente información contextual para determinar si el uso del término es sarcástico, irónico o directamente insultante, lo que genera incertidumbre en el contexto."
           ]
         }
       }
