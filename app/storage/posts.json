@@ -671,5 +671,51 @@
       }
     ],
     "human_review": null
+  },
+  "10ee14de-fad3-4be6-8eac-a4ef69262581": {
+    "id": "10ee14de-fad3-4be6-8eac-a4ef69262581",
+    "user": "usuario_demo",
+    "text": "voy a dispararte cuando te vea",
+    "image_path": null,
+    "created_at": "2026-04-09T10:25:37.067754+00:00",
+    "status": "REVISIÓN_HUMANA",
+    "moderation_reason": "El post está clasificado bajo la categoría 'violencia', que tiene una severidad alta según la política. Aunque la confianza detectada es de 0.5, lo que indica un riesgo medio, la política establece que para categorías de severidad alta, el estado final debe ser 'RECHAZADO' en casos de riesgo medio o alto. Esto se hace para priorizar la seguridad y prevenir contenido violento en la plataforma.",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-09T10:25:40.675370",
+        "output": {
+          "labels": [
+            "violencia"
+          ],
+          "confidence": 0.5,
+          "signals": [
+            "keyword_violencia",
+            "regex_violencia",
+            "llm_error: Error code: 400 - {'error': {'message': \"The response was filtered due to the prompt triggering Azure OpenAI's content management policy. Please modify your prompt and retry. To learn more about our content filtering policies please read our documentation: https://go.microsoft.com/fwlink/?linkid=2198766\", 'type': None, 'param': 'prompt', 'code': 'content_filter', 'status': 400, 'innererror': {'code': 'ResponsibleAIPolicyViolation', 'content_filter_result': {'hate': {'filtered': False, 'severity': 'safe'}, 'jailbreak': {'filtered': False, 'detected': False}, 'self_harm': {'filtered': False, 'severity': 'safe'}, 'sexual': {'filtered': False, 'severity': 'safe'}, 'violence': {'filtered': True, 'severity': 'medium'}}}}}"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-09T10:25:43.692849",
+        "output": {
+          "proposed_status": "RECHAZADO",
+          "reason": "El post está clasificado bajo la categoría 'violencia', que tiene una severidad alta según la política. Aunque la confianza detectada es de 0.5, lo que indica un riesgo medio, la política establece que para categorías de severidad alta, el estado final debe ser 'RECHAZADO' en casos de riesgo medio o alto. Esto se hace para priorizar la seguridad y prevenir contenido violento en la plataforma."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-09T10:25:45.885861",
+        "output": {
+          "final_status": "REVISIÓN_HUMANA",
+          "risk_notes": [
+            "La confianza detectada es de 0.5, lo que indica incertidumbre en el contexto y la clasificación.",
+            "El error del LLM sugiere que el contenido fue filtrado automáticamente, lo que podría indicar ambigüedad o complejidad en el análisis del tono o contexto."
+          ]
+        }
+      }
+    ],
+    "human_review": null
   }
 }

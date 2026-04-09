@@ -1,8 +1,10 @@
-# Política de moderación MVP - Instagram simplificado
+# Política de moderación MVP - Versión 2.0 avanzada (calibración profunda)
 
 thresholds:
-  low_confidence_threshold: 0.4
-  high_risk_threshold: 0.8
+  # Evita activaciones por coincidencias débiles o aisladas
+  low_confidence_threshold: 0.45
+  # Rechazo automático solo cuando la señal es muy clara
+  high_risk_threshold: 0.85
 
 categories:
   spam_estafa:
@@ -12,16 +14,26 @@ categories:
       medium: REVISION_HUMANA
       high: RECHAZADO
     keywords:
-      - "gana dinero rápido"
-      - "hazte rico"
-      - "inversión garantizada"
-      - "bitcoin gratis"
-      - "click aquí"
-      - "oferta limitada"
+      # Promesas financieras explícitamente irreales
+      - "gana dinero rápido sin esfuerzo"
+      - "hazte rico en pocos días"
+      - "inversión 100% garantizada"
+      - "retorno asegurado"
+      - "multiplica tu dinero automáticamente"
+      - "oferta limitada solo hoy"
+      - "ingresos pasivos garantizados"
+      - "haz clic aquí ahora mismo"
     regex:
-      - "http[s]?://"
-      - "www\\."
-  
+      # URL explícita (una sola no implica rechazo automático)
+      - "https?://[^\\s]+"
+      - "www\\.[^\\s]+"
+      # Promesas exageradas de rentabilidad
+      - "(?i)\\b\\d{2,}%\\s*(de)?\\s*(ganancia|retorno|beneficio)\\b"
+      # Uso agresivo de mayúsculas con llamada a la acción
+      - "(?i)\\b(GANA|DINERO|GRATIS|URGENTE)\\b.*\\b(AHORA|YA)\\b"
+      # Patrón típico de estafa combinado con urgencia
+      - "(?i)(garantizado|asegurado).*(hoy|ahora|urgente)"
+
   odio:
     severity: high
     action:
@@ -29,11 +41,18 @@ categories:
       medium: RECHAZADO
       high: RECHAZADO
     keywords:
-      - "odio a"
-      - "malditos"
-      - "escoria"
+      # Deshumanización explícita
+      - "son inferiores por naturaleza"
+      - "son una plaga"
+      - "escoria humana"
       - "subhumanos"
-    regex: []
+      - "deberían desaparecer"
+      - "hay que expulsarlos"
+    regex:
+      # Incitación directa contra grupo
+      - "(?i)(matar|eliminar|expulsar)\\s+a\\s+(los|las)\\s+[a-záéíóúñ]+"
+      # Generalización negativa fuerte
+      - "(?i)(todos|ese|ese grupo|esa gente)\\s+(son|es)\\s+(basura|inferiores|criminales)"
 
   acoso_amenazas:
     severity: high
@@ -42,11 +61,18 @@ categories:
       medium: RECHAZADO
       high: RECHAZADO
     keywords:
+      # Amenazas directas inequívocas
       - "te voy a matar"
-      - "te voy a buscar"
-      - "vas a pagar"
-      - "golpearte"
-    regex: []
+      - "te voy a hacer daño"
+      - "voy a ir a por ti"
+      - "vas a pagar por esto"
+      - "voy a destrozarte"
+    regex:
+      # Estructura amenaza directa (segunda persona + verbo daño)
+      - "(?i)te\\s+voy\\s+a\\s+(matar|golpear|destrozar|hacer daño|perseguir)"
+      # Amenaza implícita futura (menos directa)
+      - "(?i)te\\s+vas\\s+a\\s+arrepentir"
+      - "(?i)algún\\s+d[ií]a\\s+lo\\s+pagar[aá]s"
 
   sexual:
     severity: medium
@@ -55,11 +81,18 @@ categories:
       medium: RECHAZADO
       high: RECHAZADO
     keywords:
-      - "sexo explícito"
-      - "contenido sexual"
-      - "desnuda"
-      - "pornografía"
-    regex: []
+      # Contenido sexual explícito claro
+      - "contenido sexual explícito"
+      - "acto sexual explícito"
+      - "vídeo pornográfico explícito"
+      - "desnudo explícito frontal"
+      - "pornografía explícita"
+    regex:
+      # Solicitudes sexuales directas
+      - "(?i)env[ií]a\\s+(fotos|vídeos)\\s+desnudo"
+      - "(?i)contenido\\s+para\\s+adultos\\s+expl[ií]cito"
+      # Ofertas sexuales directas
+      - "(?i)servicios\\s+sexuales\\s+disponibles"
 
   violencia:
     severity: high
@@ -68,11 +101,20 @@ categories:
       medium: RECHAZADO
       high: RECHAZADO
     keywords:
-      - "disparar"
-      - "apuñalar"
-      - "bomba"
-      - "matar"
-    regex: []
+      # Violencia explícita dirigida
+      - "voy a dispararte"
+      - "voy a apuñalarte"
+      - "voy a matarte"
+      - "voy a poner una bomba"
+      - "hay que matarlo"
+      - "hay que lincharlo"
+    regex:
+      # Amenaza directa clara
+      - "(?i)voy\\s+a\\s+(disparar|apuñalar|matar|poner\\s+una\\s+bomba)\\s*(te|lo|la)?"
+      # Incitación colectiva
+      - "(?i)hay\\s+que\\s+(matar|linchar|quemar)"
+      # Expresión de intención futura violenta
+      - "(?i)cuando\\s+te\\s+vea\\s+voy\\s+a\\s+(matar|golpear|disparar)"
 
   datos_personales:
     severity: high
@@ -82,5 +124,9 @@ categories:
       high: REVISION_HUMANA
     keywords: []
     regex:
-      - "[\\w\\.-]+@[\\w\\.-]+\\.\\w+"      # email
-      - "\\b\\d{9,15}\\b"                   # teléfono simple
+      # Email robusto
+      - "\\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}\\b"
+      # Teléfono internacional opcional
+      - "\\b(?:\\+\\d{1,3}[\\s-]?)?\\d{3}[\\s-]?\\d{3}[\\s-]?\\d{3,4}\\b"
+      # DNI o identificadores largos (revisión)
+      - "\\b\\d{8}[A-Za-z]\\b"
