@@ -1,0 +1,7 @@
+.env
+__pycache__/
+*.pyc
+app/storage/posts.json
+app/storage/uploaded_images/*
+app/storage/logs.jsonl
+.streamlit/
