@@ -8,8 +8,7 @@ import os
 
 class AgentDecider:
     """
-    Aplica la política de moderación.
-    Usa razonamiento LLM para interpretar la severidad y el contexto.
+    Aplica la política de moderación (Versión Azure AI Hub).
     """
 
     def __init__(self, policy_path: str):
@@ -17,7 +16,13 @@ class AgentDecider:
             self.policy = yaml.safe_load(f)
 
         load_dotenv()
-        self.llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
+        
+        self.llm = ChatOpenAI(
+            model=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME", "gpt-4o"),
+            api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+            base_url=f"{os.getenv('AZURE_OPENAI_ENDPOINT')}/v1",
+            temperature=0
+        )
         self.output_parser = JsonOutputParser()
 
         self.prompt = ChatPromptTemplate.from_template(
@@ -72,7 +77,6 @@ class AgentDecider:
             return result
             
         except Exception as e:
-            # Fallback a lógica de reglas básicas
             worst_status = "REVISION_HUMANA"
             return {
                 "proposed_status": worst_status,

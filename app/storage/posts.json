@@ -86,5 +86,217 @@
       }
     ],
     "human_review": null
+  },
+  "6ee96522-06ba-43c2-98f0-eeebb22a78bb": {
+    "id": "6ee96522-06ba-43c2-98f0-eeebb22a78bb",
+    "user": "usuario_demo",
+    "text": "eres un cabron te voy a matar",
+    "image_path": null,
+    "created_at": "2026-04-09T09:06:00.354028+00:00",
+    "status": "REVISION_HUMANA",
+    "moderation_reason": "Decisión basada en fallback por error en IA: Error code: 401 - {'error': {'message': 'Incorrect API key provided: 74Sev5c5************************************************************************DXJ9. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-09T09:06:02.756000",
+        "output": {
+          "labels": [
+            "violencia",
+            "acoso_amenazas"
+          ],
+          "confidence": 0.4,
+          "signals": [
+            "keyword_acoso_amenazas",
+            "keyword_violencia",
+            "llm_error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: 74Sev5c5************************************************************************DXJ9. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-09T09:06:02.952890",
+        "output": {
+          "proposed_status": "REVISION_HUMANA",
+          "reason": "Decisión basada en fallback por error en IA: Error code: 401 - {'error': {'message': 'Incorrect API key provided: 74Sev5c5************************************************************************DXJ9. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}"
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-09T09:06:03.238537",
+        "output": {
+          "final_status": "REVISION_HUMANA",
+          "risk_notes": [
+            "Error en revisión IA, usando propuesta original. Error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: 74Sev5c5************************************************************************DXJ9. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}"
+          ]
+        }
+      }
+    ],
+    "human_review": null
+  },
+  "05dec269-79d6-47c6-acb0-a5a3a3a1a8fb": {
+    "id": "05dec269-79d6-47c6-acb0-a5a3a3a1a8fb",
+    "user": "usuario_demo",
+    "text": "te voy a matar gilipollas",
+    "image_path": null,
+    "created_at": "2026-04-09T09:19:59.666042+00:00",
+    "status": "RECHAZADO",
+    "moderation_reason": "El post fue clasificado bajo la categoría 'acoso_amenazas' con una confianza de 0.98, lo que indica un riesgo alto. Según la política de umbrales, los riesgos altos (confianza >= 0.8) suelen ser rechazados. Además, la política de categorías para 'acoso_amenazas' establece que los contenidos con riesgo alto deben ser rechazados debido a la severidad alta de esta categoría. Por lo tanto, se tomó la decisión de rechazar el post para garantizar la seguridad y cumplimiento de las normas de moderación.",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-09T09:20:03.306809",
+        "output": {
+          "labels": [
+            "acoso_amenazas"
+          ],
+          "confidence": 0.98,
+          "signals": [
+            "keyword_acoso_amenazas",
+            "frase ofensiva detectada",
+            "uso de lenguaje amenazante ('te voy a matar')",
+            "keyword_violencia"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-09T09:20:06.344547",
+        "output": {
+          "proposed_status": "RECHAZADO",
+          "reason": "El post fue clasificado bajo la categoría 'acoso_amenazas' con una confianza de 0.98, lo que indica un riesgo alto. Según la política de umbrales, los riesgos altos (confianza >= 0.8) suelen ser rechazados. Además, la política de categorías para 'acoso_amenazas' establece que los contenidos con riesgo alto deben ser rechazados debido a la severidad alta de esta categoría. Por lo tanto, se tomó la decisión de rechazar el post para garantizar la seguridad y cumplimiento de las normas de moderación."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-09T09:20:08.321927",
+        "output": {
+          "final_status": "RECHAZADO",
+          "risk_notes": []
+        }
+      }
+    ],
+    "human_review": null
+  },
+  "ca0d158e-945a-4a34-a895-2760cc49ac30": {
+    "id": "ca0d158e-945a-4a34-a895-2760cc49ac30",
+    "user": "usuario_demo",
+    "text": "tengo un negocio, si te unes a este link puedes ganar mucho dinero",
+    "image_path": null,
+    "created_at": "2026-04-09T09:21:45.689209+00:00",
+    "status": "RECHAZADO",
+    "moderation_reason": "El post fue clasificado bajo la categoría 'spam_estafa' con una confianza de 0.9, lo que indica un riesgo alto. Según la política de umbrales, los posts con riesgo alto (confianza >= 0.8) suelen ser rechazados. Además, la política de categorías para 'spam_estafa' especifica que los posts con riesgo alto deben ser rechazados. Por lo tanto, se tomó la decisión de rechazar el post para mitigar el riesgo de contenido perjudicial.",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-09T09:21:47.736852",
+        "output": {
+          "labels": [
+            "spam_estafa"
+          ],
+          "confidence": 0.9,
+          "signals": [
+            "Instrucción para unirse a un enlace sin contexto claro",
+            "Uso de lenguaje que promete ganancias rápidas"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-09T09:21:50.095196",
+        "output": {
+          "proposed_status": "RECHAZADO",
+          "reason": "El post fue clasificado bajo la categoría 'spam_estafa' con una confianza de 0.9, lo que indica un riesgo alto. Según la política de umbrales, los posts con riesgo alto (confianza >= 0.8) suelen ser rechazados. Además, la política de categorías para 'spam_estafa' especifica que los posts con riesgo alto deben ser rechazados. Por lo tanto, se tomó la decisión de rechazar el post para mitigar el riesgo de contenido perjudicial."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-09T09:21:51.169783",
+        "output": {
+          "final_status": "RECHAZADO",
+          "risk_notes": []
+        }
+      }
+    ],
+    "human_review": null
+  },
+  "3a02032c-2f04-4f44-9333-38be5e5b69ca": {
+    "id": "3a02032c-2f04-4f44-9333-38be5e5b69ca",
+    "user": "usuario_demo",
+    "text": "La verdad es que este mes me estaba costando bastante llegar a fin de mes, pero probé una plataforma que me recomendaron en un foro y me sorprendió. No es el típico “hazte rico rápido”, simplemente automatiza pequeñas inversiones y en mi caso ya estoy viendo resultados. Si alguien quiere info que me escriba por privado, porque no sé si se puede poner enlaces aquí",
+    "image_path": null,
+    "created_at": "2026-04-09T09:23:35.876408+00:00",
+    "status": "RECHAZADO",
+    "moderation_reason": "El post fue clasificado bajo la categoría 'spam_estafa' con una confianza de 0.85, lo que indica un riesgo alto. Según la política de umbrales, los posts con riesgo alto (confianza >= 0.8) suelen ser rechazados. Además, la política específica para la categoría 'spam_estafa' establece que los posts con riesgo alto deben ser rechazados. Por lo tanto, se tomó la decisión de rechazar el post para mitigar el riesgo de contenido perjudicial.",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-09T09:23:38.416383",
+        "output": {
+          "labels": [
+            "spam_estafa"
+          ],
+          "confidence": 0.85,
+          "signals": [
+            "Mención de una plataforma que automatiza inversiones sin detalles claros ('probé una plataforma que me recomendaron en un foro')",
+            "keyword_spam_estafa",
+            "Promoción indirecta con solicitud de contacto privado ('Si alguien quiere info que me escriba por privado')"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-09T09:23:40.818314",
+        "output": {
+          "proposed_status": "RECHAZADO",
+          "reason": "El post fue clasificado bajo la categoría 'spam_estafa' con una confianza de 0.85, lo que indica un riesgo alto. Según la política de umbrales, los posts con riesgo alto (confianza >= 0.8) suelen ser rechazados. Además, la política específica para la categoría 'spam_estafa' establece que los posts con riesgo alto deben ser rechazados. Por lo tanto, se tomó la decisión de rechazar el post para mitigar el riesgo de contenido perjudicial."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-09T09:23:41.875845",
+        "output": {
+          "final_status": "RECHAZADO",
+          "risk_notes": []
+        }
+      }
+    ],
+    "human_review": null
+  },
+  "b671f3d3-e0f0-45b5-abe7-68c9a1395f3f": {
+    "id": "b671f3d3-e0f0-45b5-abe7-68c9a1395f3f",
+    "user": "usuario_demo",
+    "text": "Últimamente he estado probando distintas formas de organizar mis ahorros y me sorprendió una herramienta que encontré casi por casualidad. No es nada raro ni milagroso, simplemente te ayuda a optimizar pequeños movimientos que normalmente no tenemos en cuenta. En mi caso ha sido útil, sobre todo porque no requiere estar pendiente todo el día. Si alguien está en el mismo punto de querer ordenar mejor sus finanzas, puedo contarle lo que estoy usando.",
+    "image_path": null,
+    "created_at": "2026-04-09T09:24:43.658701+00:00",
+    "status": "APROBADO",
+    "moderation_reason": "No se detectaron categorías de riesgo.",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-09T09:24:45.342065",
+        "output": {
+          "labels": [],
+          "confidence": 0.99,
+          "signals": []
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-09T09:24:45.364901",
+        "output": {
+          "proposed_status": "APROBADO",
+          "reason": "No se detectaron categorías de riesgo."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-09T09:24:46.526968",
+        "output": {
+          "final_status": "APROBADO",
+          "risk_notes": []
+        }
+      }
+    ],
+    "human_review": null
   }
 }

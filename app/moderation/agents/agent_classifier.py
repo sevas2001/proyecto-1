@@ -10,9 +10,7 @@ import os
 
 class AgentClassifier:
     """
-    Agente de clasificación.
-    - Usa heurísticas (keywords + regex) como soporte inicial.
-    - Usa LLM (GPT) para razonamiento profundo y detección de matices.
+    Agente de clasificación (Versión Azure AI Hub).
     """
 
     def __init__(self, policy_path: str):
@@ -20,7 +18,15 @@ class AgentClassifier:
             self.policy = yaml.safe_load(f)
 
         load_dotenv()
-        self.llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
+        
+        # Usamos ChatOpenAI con base_url para compatibilidad con el proxy de GenIA
+        self.llm = ChatOpenAI(
+            model=os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME", "gpt-4o"),
+            api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+            base_url=f"{os.getenv('AZURE_OPENAI_ENDPOINT')}/v1",
+            temperature=0
+        )
+        
         self.output_parser = JsonOutputParser()
         
         self.prompt = ChatPromptTemplate.from_template(
@@ -55,14 +61,12 @@ class AgentClassifier:
         score = 0.0
 
         for category, config in self.policy["categories"].items():
-            # Keywords
             for kw in config.get("keywords", []):
                 if kw.lower() in text_lower:
                     labels.append(category)
                     signals.append(f"keyword_{category}")
                     score += 0.2
 
-            # Regex
             for pattern in config.get("regex", []):
                 if re.search(pattern, text, re.IGNORECASE):
                     labels.append(category)
@@ -77,11 +81,8 @@ class AgentClassifier:
 
     def classify(self, post: Dict[str, Any]) -> Dict[str, Any]:
         text = post.get("text", "")
-        
-        # 1. Obtener señales heurísticas (útil como contexto o fallback)
         heuristics = self._heuristic_classification(text)
         
-        # 2. Razonamiento inteligente con LLM
         try:
             chain = self.prompt | self.llm | self.output_parser
             categories_str = ", ".join(self.policy["categories"].keys())
@@ -91,11 +92,9 @@ class AgentClassifier:
                 "policy_categories": categories_str
             })
             
-            # Mezclamos señales para un trace completo
             ai_result["signals"] = list(set(ai_result.get("signals", []) + heuristics["signals"]))
             return ai_result
             
         except Exception as e:
-            # Fallback a heurísticas si falla la API
             heuristics["signals"].append(f"llm_error: {str(e)}")
             return heuristics
