@@ -1,0 +1,90 @@
+{
+  "85bda839-a42d-4894-a4b0-ace6badf9ba0": {
+    "id": "85bda839-a42d-4894-a4b0-ace6badf9ba0",
+    "user": "usuario_demo",
+    "text": "Primera publicación de prueba. ¡Hola ModerApp!",
+    "image_path": null,
+    "created_at": "2026-04-08T09:53:26.088554+00:00",
+    "status": "APROBADO",
+    "moderation_reason": "Contenido aprobado automáticamente (módulo stub).",
+    "trace": [
+      {
+        "step": "stub_inicializado",
+        "resultado": "ok",
+        "detalle": "Módulo de moderación pendiente de implementación real."
+      },
+      {
+        "step": "decision_final",
+        "resultado": "APROBADO",
+        "detalle": "Post id=85bda839-a42d-4894-a4b0-ace6badf9ba0 aprobado sin filtros."
+      }
+    ],
+    "human_review": null
+  },
+  "7d04c2d5-bff1-4987-9c77-24182cb1b6d8": {
+    "id": "7d04c2d5-bff1-4987-9c77-24182cb1b6d8",
+    "user": "usuario_demo",
+    "text": "hollaaaaaa mundo",
+    "image_path": null,
+    "created_at": "2026-04-08T09:55:33.723762+00:00",
+    "status": "APROBADO",
+    "moderation_reason": "Contenido aprobado automáticamente (módulo stub).",
+    "trace": [
+      {
+        "step": "stub_inicializado",
+        "resultado": "ok",
+        "detalle": "Módulo de moderación pendiente de implementación real."
+      },
+      {
+        "step": "decision_final",
+        "resultado": "APROBADO",
+        "detalle": "Post id=7d04c2d5-bff1-4987-9c77-24182cb1b6d8 aprobado sin filtros."
+      }
+    ],
+    "human_review": null
+  },
+  "cb118da8-7f13-4ce9-9d8c-923d7e80b8ab": {
+    "id": "cb118da8-7f13-4ce9-9d8c-923d7e80b8ab",
+    "user": "usuario_demo",
+    "text": "pene",
+    "image_path": null,
+    "created_at": "2026-04-08T09:55:41.287410+00:00",
+    "status": "APROBADO",
+    "moderation_reason": "Contenido aprobado automáticamente (módulo stub).",
+    "trace": [
+      {
+        "step": "stub_inicializado",
+        "resultado": "ok",
+        "detalle": "Módulo de moderación pendiente de implementación real."
+      },
+      {
+        "step": "decision_final",
+        "resultado": "APROBADO",
+        "detalle": "Post id=cb118da8-7f13-4ce9-9d8c-923d7e80b8ab aprobado sin filtros."
+      }
+    ],
+    "human_review": null
+  },
+  "d0585095-c50b-4c48-9ba1-37072387139a": {
+    "id": "d0585095-c50b-4c48-9ba1-37072387139a",
+    "user": "usuario_demo",
+    "text": "holaaa apepepe",
+    "image_path": null,
+    "created_at": "2026-04-08T10:02:27.485771+00:00",
+    "status": "APROBADO",
+    "moderation_reason": "Contenido aprobado automáticamente (módulo stub).",
+    "trace": [
+      {
+        "step": "stub_inicializado",
+        "resultado": "ok",
+        "detalle": "Módulo de moderación pendiente de implementación real."
+      },
+      {
+        "step": "decision_final",
+        "resultado": "APROBADO",
+        "detalle": "Post id=d0585095-c50b-4c48-9ba1-37072387139a aprobado sin filtros."
+      }
+    ],
+    "human_review": null
+  }
+}

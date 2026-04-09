@@ -1,0 +1,86 @@
+# Política de moderación MVP - Instagram simplificado
+
+thresholds:
+  low_confidence_threshold: 0.4
+  high_risk_threshold: 0.8
+
+categories:
+  spam_estafa:
+    severity: medium
+    action:
+      low: REVISION_HUMANA
+      medium: REVISION_HUMANA
+      high: RECHAZADO
+    keywords:
+      - "gana dinero rápido"
+      - "hazte rico"
+      - "inversión garantizada"
+      - "bitcoin gratis"
+      - "click aquí"
+      - "oferta limitada"
+    regex:
+      - "http[s]?://"
+      - "www\\."
+  
+  odio:
+    severity: high
+    action:
+      low: REVISION_HUMANA
+      medium: RECHAZADO
+      high: RECHAZADO
+    keywords:
+      - "odio a"
+      - "malditos"
+      - "escoria"
+      - "subhumanos"
+    regex: []
+
+  acoso_amenazas:
+    severity: high
+    action:
+      low: REVISION_HUMANA
+      medium: RECHAZADO
+      high: RECHAZADO
+    keywords:
+      - "te voy a matar"
+      - "te voy a buscar"
+      - "vas a pagar"
+      - "golpearte"
+    regex: []
+
+  sexual:
+    severity: medium
+    action:
+      low: REVISION_HUMANA
+      medium: RECHAZADO
+      high: RECHAZADO
+    keywords:
+      - "sexo explícito"
+      - "contenido sexual"
+      - "desnuda"
+      - "pornografía"
+    regex: []
+
+  violencia:
+    severity: high
+    action:
+      low: REVISION_HUMANA
+      medium: RECHAZADO
+      high: RECHAZADO
+    keywords:
+      - "disparar"
+      - "apuñalar"
+      - "bomba"
+      - "matar"
+    regex: []
+
+  datos_personales:
+    severity: high
+    action:
+      low: REVISION_HUMANA
+      medium: REVISION_HUMANA
+      high: REVISION_HUMANA
+    keywords: []
+    regex:
+      - "[\\w\\.-]+@[\\w\\.-]+\\.\\w+"      # email
+      - "\\b\\d{9,15}\\b"                   # teléfono simple
