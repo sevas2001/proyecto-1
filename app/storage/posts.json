@@ -298,5 +298,42 @@
       }
     ],
     "human_review": null
+  },
+  "67b9b4c5-de8b-44d9-8866-fde12794ab9b": {
+    "id": "67b9b4c5-de8b-44d9-8866-fde12794ab9b",
+    "user": "usuario_demo",
+    "text": "hola papi",
+    "image_path": null,
+    "created_at": "2026-04-09T09:40:00.509198+00:00",
+    "status": "APROBADO",
+    "moderation_reason": "No se detectaron categorías de riesgo.",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-09T09:40:02.517280",
+        "output": {
+          "labels": [],
+          "confidence": 0.99,
+          "signals": []
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-09T09:40:02.541237",
+        "output": {
+          "proposed_status": "APROBADO",
+          "reason": "No se detectaron categorías de riesgo."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-09T09:40:03.689490",
+        "output": {
+          "final_status": "APROBADO",
+          "risk_notes": []
+        }
+      }
+    ],
+    "human_review": null
   }
 }
