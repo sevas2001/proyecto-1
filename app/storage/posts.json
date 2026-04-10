@@ -79,5 +79,137 @@
       }
     ],
     "human_review": null
+  },
+  "18a644c1-9de3-4aa7-990e-5cc52b662a34": {
+    "id": "18a644c1-9de3-4aa7-990e-5cc52b662a34",
+    "user": "peter",
+    "text": "eres tonto",
+    "image_path": null,
+    "created_at": "2026-04-10T08:57:34.693821+00:00",
+    "status": "RECHAZADO",
+    "moderation_reason": "El post fue clasificado bajo la categoría 'acoso_amenazas' con una confianza de 0.85, lo que indica un riesgo alto. Según la política de umbrales, los posts con riesgo alto suelen ser rechazados. Además, la política de categorías para 'acoso_amenazas' establece que los contenidos con riesgo alto deben ser rechazados debido a la gravedad de la categoría y su impacto potencial. Por lo tanto, se tomó la decisión de rechazar el post para garantizar la seguridad y el cumplimiento de las normas de la plataforma.",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-10T08:57:39.389090",
+        "output": {
+          "labels": [
+            "acoso_amenazas"
+          ],
+          "confidence": 0.85,
+          "signals": [
+            "frase ofensiva detectada"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-10T08:57:43.291052",
+        "output": {
+          "proposed_status": "RECHAZADO",
+          "reason": "El post fue clasificado bajo la categoría 'acoso_amenazas' con una confianza de 0.85, lo que indica un riesgo alto. Según la política de umbrales, los posts con riesgo alto suelen ser rechazados. Además, la política de categorías para 'acoso_amenazas' establece que los contenidos con riesgo alto deben ser rechazados debido a la gravedad de la categoría y su impacto potencial. Por lo tanto, se tomó la decisión de rechazar el post para garantizar la seguridad y el cumplimiento de las normas de la plataforma."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-10T08:57:44.556677",
+        "output": {
+          "final_status": "RECHAZADO",
+          "risk_notes": []
+        }
+      }
+    ],
+    "human_review": null
+  },
+  "f76f2c4b-8d2c-4d16-8a19-7b5b7ba9ef13": {
+    "id": "f76f2c4b-8d2c-4d16-8a19-7b5b7ba9ef13",
+    "user": "peter",
+    "text": "eres gilipollas",
+    "image_path": null,
+    "created_at": "2026-04-10T08:57:55.116511+00:00",
+    "status": "RECHAZADO",
+    "moderation_reason": "El post fue clasificado bajo la categoría 'odio' con una confianza de 0.85, lo que indica un riesgo alto. Según la política de umbrales, los posts con riesgo alto suelen ser rechazados. Además, la política de categorías para 'odio' establece que los contenidos con riesgo alto deben ser rechazados debido a su severidad ('high'). Por lo tanto, se tomó la decisión de rechazar el post para evitar la propagación de contenido dañino o discriminatorio.",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-10T08:57:56.911745",
+        "output": {
+          "labels": [
+            "odio"
+          ],
+          "confidence": 0.85,
+          "signals": [
+            "frase ofensiva detectada"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-10T08:58:00.174209",
+        "output": {
+          "proposed_status": "RECHAZADO",
+          "reason": "El post fue clasificado bajo la categoría 'odio' con una confianza de 0.85, lo que indica un riesgo alto. Según la política de umbrales, los posts con riesgo alto suelen ser rechazados. Además, la política de categorías para 'odio' establece que los contenidos con riesgo alto deben ser rechazados debido a su severidad ('high'). Por lo tanto, se tomó la decisión de rechazar el post para evitar la propagación de contenido dañino o discriminatorio."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-10T08:58:01.448805",
+        "output": {
+          "final_status": "RECHAZADO",
+          "risk_notes": []
+        }
+      }
+    ],
+    "human_review": null
+  },
+  "d404b5ee-8d27-4ab5-b212-cdb26ba908aa": {
+    "id": "d404b5ee-8d27-4ab5-b212-cdb26ba908aa",
+    "user": "peter",
+    "text": "no eres muy listo y si te veo tendremos unas palabras",
+    "image_path": null,
+    "created_at": "2026-04-10T08:58:28.919063+00:00",
+    "status": "RECHAZADO",
+    "moderation_reason": "Decisión manual del administrador",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-10T08:58:30.773129",
+        "output": {
+          "labels": [
+            "acoso_amenazas"
+          ],
+          "confidence": 0.85,
+          "signals": [
+            "frase 'si te veo tendremos unas palabras' puede interpretarse como una amenaza implícita"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-10T08:58:34.871205",
+        "output": {
+          "proposed_status": "RECHAZADO",
+          "reason": "El post fue clasificado bajo la categoría 'acoso_amenazas' con una confianza de 0.85, lo que indica un riesgo alto. Según la política de umbrales, los posts con riesgo alto suelen ser rechazados. Además, la política de categorías para 'acoso_amenazas' establece que los contenidos con riesgo alto deben ser rechazados debido a la gravedad de la categoría y su impacto potencial. Por lo tanto, se decide rechazar el post para prevenir posibles daños o amenazas."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-10T08:58:37.981612",
+        "output": {
+          "final_status": "REQUIERE_REVISIÓN_HUMANA",
+          "risk_notes": [
+            "La frase 'si te veo tendremos unas palabras' es ambigua y puede interpretarse de diferentes maneras dependiendo del tono o contexto, lo que sugiere incertidumbre en el contexto.",
+            "No se puede determinar con certeza si el tono es sarcástico, irónico o una amenaza real, lo que introduce ambigüedad en el análisis."
+          ]
+        }
+      }
+    ],
+    "human_review": null,
+    "admin_decision": {
+      "admin_username": "raul",
+      "decision": "RECHAZADO",
+      "justificacion": "amenazas",
+      "timestamp": "2026-04-10T09:20:51.310696+00:00"
+    }
   }
 }

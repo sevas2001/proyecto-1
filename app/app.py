@@ -31,7 +31,7 @@ ROOT_DIR = os.path.dirname(APP_DIR)
 if APP_DIR not in sys.path:
     sys.path.insert(0, APP_DIR)
 
-from storage.storage import load_posts, add_post, update_post, IMAGES_DIR
+from storage.storage import load_posts, save_posts as storage_save_posts, add_post, update_post, IMAGES_DIR
 from moderation.orchestrator import moderate_post
 
 # ---------------------------------------------------------------------
@@ -272,6 +272,196 @@ if "authenticated" not in st.session_state:
     st.session_state.user_status = None
 
 # ---------------------------------------------------------------------
+# ADMIN HELPERS
+# ---------------------------------------------------------------------
+
+def is_admin():
+    """Verifica si el usuario actual es administrador."""
+    return (
+        st.session_state.get("authenticated")
+        and st.session_state.get("role") == "admin"
+    )
+
+
+# ---------------------------------------------------------------------
+# HUMAN REVIEW CORE FUNCTIONS
+# ---------------------------------------------------------------------
+
+def save_posts(posts: dict):
+    """
+    Reescribe completamente el archivo de posts de forma segura.
+    """
+    return storage_save_posts(posts)
+
+
+def get_pending_posts():
+    """
+    Devuelve únicamente posts en revisión humana.
+    Soporta variantes como:
+    - REVISION_HUMANA
+    - REQUIERE_REVISIÓN_HUMANA
+    """
+    posts = load_posts()
+
+    pending = {}
+
+    for pid, p in posts.items():
+        status = str(p.get("status", "")).strip().upper()
+
+        if (
+            status == "REVISION_HUMANA"
+            or "REVISION" in status and "HUMANA" in status
+            or "REQUIERE" in status and "HUMANA" in status
+        ):
+            # Normalizar estado internamente
+            p["status"] = "REVISION_HUMANA"
+            pending[pid] = p
+
+    return pending
+
+
+def apply_admin_decision(post_id, decision, justification, admin_username):
+    """
+    Aplica decisión manual del admin sin duplicar posts
+    ni perder información previa.
+    """
+    posts = load_posts()
+
+    if post_id not in posts:
+        return False, "Post no encontrado."
+
+    post = posts[post_id]
+
+    current_status = str(post.get("status", "")).upper()
+
+    if not (
+        current_status == "REVISION_HUMANA"
+        or "REVISION" in current_status and "HUMANA" in current_status
+        or "REQUIERE" in current_status and "HUMANA" in current_status
+    ):
+        return False, "El post ya fue procesado."
+
+    post["status"] = decision
+    post["moderation_reason"] = "Decisión manual del administrador"
+
+    post["admin_decision"] = {
+        "admin_username": admin_username,
+        "decision": decision,
+        "justificacion": justification,
+        "timestamp": generar_timestamp()
+    }
+
+    posts[post_id] = post
+
+    ok = save_posts(posts)
+    if not ok:
+        return False, "Error al guardar cambios."
+
+    update_user_stats(post["user"], decision)
+
+    return True, "Decisión aplicada correctamente."
+
+
+def render_auditoria():
+    """Panel de auditoría completo (solo admin)."""
+
+    if not is_admin():
+        st.error("Acceso restringido a administradores.")
+        return
+
+    st.subheader("📋 Panel de Auditoría")
+
+    posts = load_posts()
+
+    if not posts:
+        st.info("No hay posts registrados.")
+        return
+
+    for post in sorted(posts.values(), key=lambda x: x["created_at"], reverse=True):
+        with st.expander(f"Post {post['id']} - @{post['user']}"):
+
+            st.markdown(f"**Usuario:** @{post['user']}")
+            st.markdown(f"**Texto:** {post['text']}")
+            st.markdown(f"**Estado final:** {post['status']}")
+            st.markdown(f"**Razón final:** {post.get('moderation_reason')}")
+
+            st.markdown("### 🔎 Trace completo")
+            for step in post.get("trace", []):
+                st.json(step)
+
+            if post.get("admin_decision"):
+                st.markdown("### 👮 Decisión Administrador")
+                st.json(post["admin_decision"])
+
+
+def render_moderacion_admin():
+    """Panel de moderación manual (solo admin)."""
+
+    if not is_admin():
+        st.error("Acceso restringido a administradores.")
+        return
+
+    st.subheader("🛡️ Moderación Humana")
+
+    pendientes = get_pending_posts()
+
+    if not pendientes:
+        st.success("No hay posts pendientes de revisión.")
+        return
+
+    for post_id, post in pendientes.items():
+
+        st.markdown("---")
+        st.markdown(f"### 👤 Usuario: @{post['user']}")
+        st.markdown(f"**Texto:** {post['text']}")
+
+        if post.get("image_path"):
+            ruta = ruta_imagen(post["image_path"])
+            if os.path.exists(ruta):
+                st.image(ruta, use_container_width=True)
+
+        st.markdown(f"**Motivo actual:** {post.get('moderation_reason')}")
+
+        st.markdown("### 🔎 Trace de agentes")
+        for step in post.get("trace", []):
+            st.json(step)
+
+        justificacion = st.text_area(
+            "Justificación del administrador (obligatoria)",
+            key=f"just_{post_id}"
+        )
+
+        col1, col2 = st.columns(2)
+
+        with col1:
+            aprobar = st.button("✅ Aprobar", key=f"aprobar_{post_id}")
+
+        with col2:
+            rechazar = st.button("❌ Rechazar", key=f"rechazar_{post_id}")
+
+        if aprobar or rechazar:
+
+            if not justificacion.strip():
+                st.error("La justificación es obligatoria.")
+                st.stop()
+
+            decision = "APROBADO" if aprobar else "RECHAZADO"
+
+            ok, msg = apply_admin_decision(
+                post_id,
+                decision,
+                justificacion,
+                st.session_state.username
+            )
+
+            if ok:
+                st.success(msg)
+                st.rerun()
+            else:
+                st.error(msg)
+
+
+# ---------------------------------------------------------------------
 # UI
 # ---------------------------------------------------------------------
 
@@ -341,6 +531,22 @@ if st.session_state.authenticated:
 
         for p in propios:
             st.markdown(f"**{p['status']}** - {p['text']}")
+
+# ---------------------------------------------------------------------
+# TAB MODERACIÓN (ADMIN)
+# ---------------------------------------------------------------------
+
+if is_admin():
+    with tab_objs[-3]:
+        render_moderacion_admin()
+
+# ---------------------------------------------------------------------
+# TAB AUDITORÍA (ADMIN)
+# ---------------------------------------------------------------------
+
+if is_admin():
+    with tab_objs[-2]:
+        render_auditoria()
 
 # ---------------------------------------------------------------------
 # TAB AUTENTICACIÓN
