@@ -211,5 +211,86 @@
       "justificacion": "amenazas",
       "timestamp": "2026-04-10T09:20:51.310696+00:00"
     }
+  },
+  "004c99c7-778b-4a66-83a9-06bf55d1c1e3": {
+    "id": "004c99c7-778b-4a66-83a9-06bf55d1c1e3",
+    "user": "peter",
+    "text": "hola me salio este error",
+    "image_path": "eb86a31c-205b-4499-80d0-0c48ad661f76.png",
+    "created_at": "2026-04-10T09:38:12.212501+00:00",
+    "status": "APROBADO",
+    "moderation_reason": "No se detectaron categorías de riesgo.",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-10T09:38:17.949378",
+        "output": {
+          "labels": [],
+          "confidence": 1.0,
+          "signals": [
+            "input_type:multimodal"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-10T09:38:17.995439",
+        "output": {
+          "proposed_status": "APROBADO",
+          "reason": "No se detectaron categorías de riesgo."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-10T09:38:19.635359",
+        "output": {
+          "final_status": "APROBADO",
+          "risk_notes": []
+        }
+      }
+    ],
+    "human_review": null
+  },
+  "beb25046-4a4f-46a0-a70c-c14fa8632995": {
+    "id": "beb25046-4a4f-46a0-a70c-c14fa8632995",
+    "user": "peter",
+    "text": "hola hoy hace un dia muy bueno",
+    "image_path": "storage\\images\\peter_20260410101647340781.jpg",
+    "created_at": "2026-04-10T10:16:47.347285+00:00",
+    "status": "RECHAZADO",
+    "moderation_reason": "El post fue clasificado bajo la categoría 'violencia' con una confianza de 0.95, lo que indica un riesgo alto según la política de umbrales (confianza >= 0.85). La política de categorías para 'violencia' establece que los casos de riesgo alto deben ser RECHAZADOS debido a la gravedad de la categoría y su impacto potencial. Por lo tanto, se tomó la decisión de rechazar el post para prevenir la propagación de contenido violento.",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-10T10:16:53.595746",
+        "output": {
+          "labels": [
+            "violencia"
+          ],
+          "confidence": 0.95,
+          "signals": [
+            "La imagen muestra un cuchillo con manchas de sangre, lo que puede interpretarse como contenido violento.",
+            "input_type:multimodal"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-10T10:16:56.692616",
+        "output": {
+          "proposed_status": "RECHAZADO",
+          "reason": "El post fue clasificado bajo la categoría 'violencia' con una confianza de 0.95, lo que indica un riesgo alto según la política de umbrales (confianza >= 0.85). La política de categorías para 'violencia' establece que los casos de riesgo alto deben ser RECHAZADOS debido a la gravedad de la categoría y su impacto potencial. Por lo tanto, se tomó la decisión de rechazar el post para prevenir la propagación de contenido violento."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-10T10:16:58.182697",
+        "output": {
+          "final_status": "RECHAZADO",
+          "risk_notes": []
+        }
+      }
+    ],
+    "human_review": null
   }
 }

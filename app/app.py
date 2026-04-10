@@ -35,6 +35,13 @@ from storage.storage import load_posts, save_posts as storage_save_posts, add_po
 from moderation.orchestrator import moderate_post
 
 # ---------------------------------------------------------------------
+# STORAGE IMAGES CONFIG (NUEVO)
+# ---------------------------------------------------------------------
+
+IMAGES_STORAGE_DIR = os.path.join(ROOT_DIR, "storage", "images")
+os.makedirs(IMAGES_STORAGE_DIR, exist_ok=True)
+
+# ---------------------------------------------------------------------
 # CONSTANTES ORIGINALES
 # ---------------------------------------------------------------------
 
@@ -177,13 +184,27 @@ def generar_timestamp():
     return datetime.now(timezone.utc).isoformat()
 
 
-def guardar_imagen(uploaded_file):
-    extension = os.path.splitext(uploaded_file.name)[1].lower()
-    nombre = f"{generar_id()}{extension}"
-    ruta = os.path.join(IMAGES_DIR, nombre)
-    with open(ruta, "wb") as f:
+# ---------------------------------------------------------------------
+# NUEVO SISTEMA DE GUARDADO DE IMÁGENES
+# ---------------------------------------------------------------------
+
+def save_image(uploaded_file, username):
+    """
+    Guarda físicamente la imagen en storage/images/
+    Devuelve la ruta relativa persistida en el post.
+    """
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S%f")
+    extension = os.path.splitext(uploaded_file.name)[1].lower() or ".jpg"
+
+    filename = f"{username}_{timestamp}{extension}"
+
+    relative_path = os.path.join("storage", "images", filename)
+    absolute_path = os.path.join(ROOT_DIR, relative_path)
+
+    with open(absolute_path, "wb") as f:
         f.write(uploaded_file.getbuffer())
-    return nombre
+
+    return relative_path
 
 
 def ruta_imagen(nombre_archivo):
@@ -192,15 +213,16 @@ def ruta_imagen(nombre_archivo):
 
 def publicar_post(user, text, imagen_file=None):
 
-    image_filename = None
+    image_path = None
+
     if imagen_file:
-        image_filename = guardar_imagen(imagen_file)
+        image_path = save_image(imagen_file, user)
 
     post = {
         "id": generar_id(),
         "user": user,
         "text": text,
-        "image_path": image_filename,
+        "image_path": image_path,
         "created_at": generar_timestamp(),
         "status": "PENDIENTE",
         "moderation_reason": None,
@@ -208,7 +230,11 @@ def publicar_post(user, text, imagen_file=None):
         "human_review": None,
     }
 
-    imagen_abs = ruta_imagen(image_filename) if image_filename else None
+    imagen_abs = (
+        os.path.join(ROOT_DIR, image_path)
+        if image_path
+        else None
+    )
 
     resultado = moderate_post({
         "id": post["id"],
@@ -491,11 +517,18 @@ with tab_objs[0]:
     else:
         with st.form("crear_post", clear_on_submit=True):
             texto = st.text_area("Texto", max_chars=MAX_TEXTO)
-            imagen = st.file_uploader("Imagen opcional", type=["jpg", "png", "jpeg"])
+            uploaded_file = st.file_uploader(
+                "Sube una imagen (opcional)",
+                type=["jpg", "jpeg", "png"]
+            )
             enviar = st.form_submit_button("Publicar")
 
         if enviar and texto.strip():
-            post = publicar_post(st.session_state.username, texto, imagen)
+            post = publicar_post(
+                st.session_state.username,
+                texto,
+                uploaded_file
+            )
             emoji = ESTADO_EMOJI.get(post["status"], "⚪")
             st.success(f"Estado: {emoji} {post['status']}")
             st.info(post["moderation_reason"])

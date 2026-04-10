@@ -33,6 +33,10 @@ categories:
       - "(?i)\\b(GANA|DINERO|GRATIS|URGENTE)\\b.*\\b(AHORA|YA)\\b"
       # Patrón típico de estafa combinado con urgencia
       - "(?i)(garantizado|asegurado).*(hoy|ahora|urgente)"
+    modalities:
+      text: true
+      image: true
+    image_weight: 1.1
 
   odio:
     severity: high
@@ -53,6 +57,10 @@ categories:
       - "(?i)(matar|eliminar|expulsar)\\s+a\\s+(los|las)\\s+[a-záéíóúñ]+"
       # Generalización negativa fuerte
       - "(?i)(todos|ese|ese grupo|esa gente)\\s+(son|es)\\s+(basura|inferiores|criminales)"
+    modalities:
+      text: true
+      image: true
+    image_weight: 1.3
 
   acoso_amenazas:
     severity: high
@@ -73,6 +81,10 @@ categories:
       # Amenaza implícita futura (menos directa)
       - "(?i)te\\s+vas\\s+a\\s+arrepentir"
       - "(?i)algún\\s+d[ií]a\\s+lo\\s+pagar[aá]s"
+    modalities:
+      text: true
+      image: true
+    image_weight: 1.2
 
   sexual:
     severity: medium
@@ -93,6 +105,10 @@ categories:
       - "(?i)contenido\\s+para\\s+adultos\\s+expl[ií]cito"
       # Ofertas sexuales directas
       - "(?i)servicios\\s+sexuales\\s+disponibles"
+    modalities:
+      text: true
+      image: true
+    image_weight: 1.4
 
   violencia:
     severity: high
@@ -115,6 +131,10 @@ categories:
       - "(?i)hay\\s+que\\s+(matar|linchar|quemar)"
       # Expresión de intención futura violenta
       - "(?i)cuando\\s+te\\s+vea\\s+voy\\s+a\\s+(matar|golpear|disparar)"
+    modalities:
+      text: true
+      image: true
+    image_weight: 1.5
 
   datos_personales:
     severity: high
@@ -130,3 +150,7 @@ categories:
       - "\\b(?:\\+\\d{1,3}[\\s-]?)?\\d{3}[\\s-]?\\d{3}[\\s-]?\\d{3,4}\\b"
       # DNI o identificadores largos (revisión)
       - "\\b\\d{8}[A-Za-z]\\b"
+    modalities:
+      text: true
+      image: true
+    image_weight: 1.0
