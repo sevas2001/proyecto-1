@@ -5,3 +5,8 @@ app/storage/posts.json
 app/storage/uploaded_images/*
 app/storage/logs.jsonl
 .streamlit/
+
+# Datos locales / herramientas del asistente
+users.db
+.claude/
+storage/images/
