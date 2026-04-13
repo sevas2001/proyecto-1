@@ -394,8 +394,8 @@
     "text": "mira lo que tengo para ti",
     "image_path": "storage\\images\\peter_20260413072511715569.png",
     "created_at": "2026-04-13T07:25:11.720465+00:00",
-    "status": "REVISION_HUMANA",
-    "moderation_reason": "No se detectaron categorías de riesgo.",
+    "status": "RECHAZADO",
+    "moderation_reason": "Decisión manual del administrador",
     "trace": [
       {
         "stage": "classifier",
@@ -430,7 +430,13 @@
         }
       }
     ],
-    "human_review": null
+    "human_review": null,
+    "admin_decision": {
+      "admin_username": "raul",
+      "decision": "RECHAZADO",
+      "justificacion": "m",
+      "timestamp": "2026-04-13T09:58:47.694456+00:00"
+    }
   },
   "9d083182-30b9-4310-8724-b415547edda5": {
     "id": "9d083182-30b9-4310-8724-b415547edda5",
@@ -838,6 +844,408 @@
         "output": {
           "final_status": "APROBADO",
           "risk_notes": []
+        }
+      }
+    ],
+    "human_review": null
+  },
+  "06dd9221-27ff-401b-9efe-92a2c7b363b6": {
+    "id": "06dd9221-27ff-401b-9efe-92a2c7b363b6",
+    "user": "raul",
+    "text": "mañana te espero",
+    "image_path": "storage\\images\\raul_20260413085347245873.png",
+    "created_at": "2026-04-13T08:53:47.254693+00:00",
+    "status": "RECHAZADO",
+    "moderation_reason": "El post fue clasificado con las etiquetas 'acoso_amenazas' y 'violencia', ambas categorías con una severidad alta según la política. La confianza detectada es de 0.9, lo que supera el umbral de 0.85 para riesgo alto. En ambas categorías, la acción para riesgo alto es 'RECHAZADO', lo que indica que el contenido es suficientemente grave para no ser aprobado ni enviado a revisión humana. Esta decisión se alinea con la política de moderación establecida.",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-13T08:53:56.357720",
+        "output": {
+          "labels": [
+            "acoso_amenazas",
+            "violencia"
+          ],
+          "confidence": 0.9,
+          "signals": [
+            "Se ve un cuchillo de cocina con un diseño detallado en el mango, sin personas ni otros elementos visibles.",
+            "Se considera contenido de riesgo porque la combinación del texto y la imagen puede interpretarse como una amenaza o incitación a la violencia, lo que incumple las categorías de acoso_amenazas y violencia según la política.",
+            "El texto 'mañana te espero' junto con la imagen de un cuchillo puede interpretarse como una amenaza implícita, ya que el cuchillo es un objeto asociado con violencia y el mensaje tiene un tono potencialmente intimidante.",
+            "input_type:multimodal"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-13T08:54:00.011632",
+        "output": {
+          "proposed_status": "RECHAZADO",
+          "reason": "El post fue clasificado con las etiquetas 'acoso_amenazas' y 'violencia', ambas categorías con una severidad alta según la política. La confianza detectada es de 0.9, lo que supera el umbral de 0.85 para riesgo alto. En ambas categorías, la acción para riesgo alto es 'RECHAZADO', lo que indica que el contenido es suficientemente grave para no ser aprobado ni enviado a revisión humana. Esta decisión se alinea con la política de moderación establecida."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-13T08:54:03.342609",
+        "output": {
+          "final_status": "RECHAZADO",
+          "risk_notes": [
+            "La decisión propuesta es consistente con la política de moderación, ya que el contenido combina un objeto asociado con violencia (cuchillo) y un mensaje textual que puede interpretarse como una amenaza implícita.",
+            "No se identifican puntos ciegos que requieran revisión humana, ya que no hay ambigüedad en el tono, datos personales sensibles ni incertidumbre en el contexto."
+          ]
+        }
+      }
+    ],
+    "human_review": null
+  },
+  "db7e9881-4071-4548-bc32-5effe7d27b4e": {
+    "id": "db7e9881-4071-4548-bc32-5effe7d27b4e",
+    "user": "raul",
+    "text": "maña va aser un dia genial",
+    "image_path": null,
+    "created_at": "2026-04-13T09:41:37.480611+00:00",
+    "status": "APROBADO",
+    "moderation_reason": "No se detectaron categorías de riesgo.",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-13T09:41:40.956597",
+        "output": {
+          "labels": [],
+          "confidence": 1.0,
+          "signals": [
+            "El texto no contiene elementos que infrinjan las categorías de la política.",
+            "input_type:text"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-13T09:41:41.004490",
+        "output": {
+          "proposed_status": "APROBADO",
+          "reason": "No se detectaron categorías de riesgo."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-13T09:41:42.515657",
+        "output": {
+          "final_status": "APROBADO",
+          "risk_notes": []
+        }
+      }
+    ],
+    "human_review": null
+  },
+  "57c1f557-c61c-4dc1-b5e2-2413c0e640d2": {
+    "id": "57c1f557-c61c-4dc1-b5e2-2413c0e640d2",
+    "user": "raul",
+    "text": "mañana te espero",
+    "image_path": "storage\\images\\raul_20260413095803453614.png",
+    "created_at": "2026-04-13T09:58:03.464165+00:00",
+    "status": "REQUIERE_REVISION_HUMANA",
+    "moderation_reason": "El post fue clasificado con las etiquetas 'acoso_amenazas' y 'violencia', ambas categorías con una severidad alta según la política. La confianza detectada es de 0.9, lo que supera el umbral de 0.85 para riesgo alto. Según la política de umbrales, los posts con riesgo alto suelen ser rechazados, y las acciones definidas para estas categorías en niveles de riesgo alto también indican 'RECHAZADO'. Por lo tanto, se decide rechazar el post para prevenir la propagación de contenido dañino o peligroso.",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-13T09:58:12.592784",
+        "output": {
+          "labels": [
+            "acoso_amenazas",
+            "violencia"
+          ],
+          "confidence": 0.9,
+          "signals": [
+            "El contenido puede considerarse de riesgo porque la combinación del texto y la imagen sugiere una intención violenta o amenazante, lo cual incumple las categorías de acoso_amenazas y violencia.",
+            "Se ve un cuchillo de cocina con mango de madera y hoja metálica, sin otros elementos visibles.",
+            "El texto 'mañana te espero' junto con la imagen de un cuchillo puede interpretarse como una amenaza implícita, ya que el cuchillo es un objeto asociado a la violencia.",
+            "input_type:multimodal"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-13T09:58:15.979263",
+        "output": {
+          "proposed_status": "RECHAZADO",
+          "reason": "El post fue clasificado con las etiquetas 'acoso_amenazas' y 'violencia', ambas categorías con una severidad alta según la política. La confianza detectada es de 0.9, lo que supera el umbral de 0.85 para riesgo alto. Según la política de umbrales, los posts con riesgo alto suelen ser rechazados, y las acciones definidas para estas categorías en niveles de riesgo alto también indican 'RECHAZADO'. Por lo tanto, se decide rechazar el post para prevenir la propagación de contenido dañino o peligroso."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-13T09:58:19.470325",
+        "output": {
+          "final_status": "REQUIERE_REVISION_HUMANA",
+          "risk_notes": [
+            "Incertidumbre en el contexto: La frase 'mañana te espero' junto con la imagen del cuchillo puede interpretarse como una amenaza implícita, pero también podría ser parte de un contexto no violento que la IA no puede determinar con certeza.",
+            "Ambigüedad en el tono: La frase podría ser interpretada como sarcasmo o ironía dependiendo del contexto, lo cual no es evaluable únicamente por la IA."
+          ]
+        }
+      }
+    ],
+    "human_review": null
+  },
+  "d3914401-5afe-47b0-b120-718f3c6896b4": {
+    "id": "d3914401-5afe-47b0-b120-718f3c6896b4",
+    "user": "raul",
+    "text": "no me gusta su color",
+    "image_path": "storage\\images\\raul_20260413100157818345.jpg",
+    "created_at": "2026-04-13T10:01:57.824017+00:00",
+    "status": "APROBADO",
+    "moderation_reason": "No se detectaron categorías de riesgo.",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-13T10:02:08.675693",
+        "output": {
+          "labels": [],
+          "confidence": 0.9,
+          "signals": [
+            "El texto 'no me gusta su color' podría referirse al color de la camiseta que lleva la persona en la imagen, ya que no hay indicios claros de que se refiera a otra característica.",
+            "Se ve una persona con una camiseta azul, cruzando los brazos, en un entorno deportivo.",
+            "No se detectan señales de odio, acoso, amenazas, contenido sexual, violencia, datos personales ni spam o estafa. El comentario no contiene lenguaje ofensivo ni discriminatorio.",
+            "input_type:multimodal"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-13T10:02:08.733866",
+        "output": {
+          "proposed_status": "APROBADO",
+          "reason": "No se detectaron categorías de riesgo."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-13T10:02:10.079672",
+        "output": {
+          "final_status": "APROBADO",
+          "risk_notes": []
+        }
+      }
+    ],
+    "human_review": null
+  },
+  "ccd31b26-f205-4e76-a3ee-ba08b56bb96e": {
+    "id": "ccd31b26-f205-4e76-a3ee-ba08b56bb96e",
+    "user": "raul",
+    "text": "no me gusta su color marron",
+    "image_path": "storage\\images\\raul_20260413100308402538.jpg",
+    "created_at": "2026-04-13T10:03:08.407551+00:00",
+    "status": "REVISION_HUMANA",
+    "moderation_reason": "No se detectaron categorías de riesgo.",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-13T10:03:19.544397",
+        "output": {
+          "labels": [],
+          "confidence": 0.0,
+          "signals": [
+            "No se detecta contenido de riesgo según la política. El texto no contiene insultos, lenguaje de odio, amenazas, contenido sexual, violencia, datos personales ni indicios de spam o estafa.",
+            "Se observa a una persona con uniforme deportivo azul, con los brazos cruzados frente al pecho. El rostro está pixelado.",
+            "El texto menciona 'no me gusta su color marrón', pero no hay una referencia clara en la imagen que indique que se refiere a una característica específica de la persona o el objeto. Podría ser un comentario genérico.",
+            "input_type:multimodal"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-13T10:03:19.601608",
+        "output": {
+          "proposed_status": "APROBADO",
+          "reason": "No se detectaron categorías de riesgo."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-13T10:03:22.962109",
+        "output": {
+          "final_status": "REVISION_HUMANA",
+          "risk_notes": [
+            "Ambigüedad en el tono: El comentario 'no me gusta su color marrón' podría ser interpretado de manera negativa dependiendo del contexto, y no está claro si se refiere a una característica específica de la persona u objeto.",
+            "Incertidumbre en el contexto: La IA no proporciona suficiente información para determinar si el comentario tiene implicaciones discriminatorias o ofensivas.",
+            "Activado por regla de seguridad de confianza/datos."
+          ]
+        }
+      }
+    ],
+    "human_review": null
+  },
+  "d49d6012-7fd3-4c44-ba60-4275d9573e9e": {
+    "id": "d49d6012-7fd3-4c44-ba60-4275d9573e9e",
+    "user": "raul",
+    "text": "se podria decir que el color marron no es mi favorito",
+    "image_path": "storage\\images\\raul_20260413100511364023.jpg",
+    "created_at": "2026-04-13T10:05:11.369807+00:00",
+    "status": "REVISION_HUMANA",
+    "moderation_reason": "No se detectaron categorías de riesgo.",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-13T10:05:21.231649",
+        "output": {
+          "labels": [],
+          "confidence": 0.0,
+          "signals": [
+            "No se detecta contenido de riesgo según la política. El texto no contiene lenguaje ofensivo, discriminatorio ni hace referencia a datos personales. La imagen es neutral y no presenta elementos que incumplan las categorías de riesgo.",
+            "El texto menciona una preferencia personal sobre el color marrón, sin relación directa con la imagen, que muestra a una persona en un contexto deportivo.",
+            "Se observa a una persona con el rostro difuminado, vistiendo un uniforme deportivo azul, con los brazos cruzados sobre el pecho. El fondo parece ser un estadio.",
+            "input_type:multimodal"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-13T10:05:21.261501",
+        "output": {
+          "proposed_status": "APROBADO",
+          "reason": "No se detectaron categorías de riesgo."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-13T10:05:22.364826",
+        "output": {
+          "final_status": "REVISION_HUMANA",
+          "risk_notes": [
+            "Activado por regla de seguridad de confianza/datos."
+          ]
+        }
+      }
+    ],
+    "human_review": null
+  },
+  "39a4d7d3-ff5b-4b25-9aa0-f08660f6be90": {
+    "id": "39a4d7d3-ff5b-4b25-9aa0-f08660f6be90",
+    "user": "raul",
+    "text": "hoy voy a hacer un rico pastel con este cuchillo",
+    "image_path": "storage\\images\\raul_20260413100648568304.png",
+    "created_at": "2026-04-13T10:06:48.575973+00:00",
+    "status": "REVISION_HUMANA",
+    "moderation_reason": "No se detectaron categorías de riesgo.",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-13T10:06:57.398074",
+        "output": {
+          "labels": [],
+          "confidence": 0.0,
+          "signals": [
+            "Se ve un cuchillo de cocina con mango de madera y hoja metálica, sin personas ni elementos adicionales.",
+            "El texto menciona la intención de usar el cuchillo para hacer un pastel, lo cual es coherente con el uso típico de este tipo de utensilio de cocina.",
+            "No se detectan señales de riesgo según la política. El contenido no promueve violencia, odio, acoso, ni incluye datos personales, contenido sexual o indicios de estafa.",
+            "input_type:multimodal"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-13T10:06:57.462935",
+        "output": {
+          "proposed_status": "APROBADO",
+          "reason": "No se detectaron categorías de riesgo."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-13T10:06:58.531358",
+        "output": {
+          "final_status": "REVISION_HUMANA",
+          "risk_notes": [
+            "Activado por regla de seguridad de confianza/datos."
+          ]
+        }
+      }
+    ],
+    "human_review": null
+  },
+  "7fd4d710-6e83-4ad3-af5e-a74a11e75bb6": {
+    "id": "7fd4d710-6e83-4ad3-af5e-a74a11e75bb6",
+    "user": "raul",
+    "text": "no me gusta su color marron",
+    "image_path": "storage\\images\\raul_20260413101350767999.jpg",
+    "created_at": "2026-04-13T10:13:50.774857+00:00",
+    "status": "REVISION_HUMANA",
+    "moderation_reason": "No se detectaron categorías de riesgo.",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-13T10:14:01.036489",
+        "output": {
+          "labels": [],
+          "confidence": 0.0,
+          "signals": [
+            "No se detectan señales de odio, acoso, amenazas, contenido sexual, violencia, datos personales ni spam o estafa. El comentario es ambiguo y no parece violar ninguna categoría de riesgo según la política.",
+            "Se observa a una persona con uniforme deportivo azul, con los brazos cruzados sobre el pecho. El rostro está pixelado.",
+            "El texto menciona 'no me gusta su color marrón', pero no hay una referencia clara en la imagen que indique que el comentario se dirige hacia una persona o grupo específico. Podría referirse a un objeto o elemento no visible en la imagen.",
+            "input_type:multimodal"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-13T10:14:01.055736",
+        "output": {
+          "proposed_status": "APROBADO",
+          "reason": "No se detectaron categorías de riesgo."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-13T10:14:04.163131",
+        "output": {
+          "final_status": "REVISION_HUMANA",
+          "risk_notes": [
+            "Ambigüedad en el contexto: El comentario 'no me gusta su color marrón' no tiene una referencia clara, lo que podría generar interpretaciones erróneas.",
+            "Incertidumbre en el contexto: La IA no puede determinar con certeza si el comentario está dirigido hacia una persona, un grupo o un objeto.",
+            "Activado por regla de seguridad de confianza/datos."
+          ]
+        }
+      }
+    ],
+    "human_review": null
+  },
+  "aebd49af-43cd-490c-bb2a-8edaae332bd0": {
+    "id": "aebd49af-43cd-490c-bb2a-8edaae332bd0",
+    "user": "raul",
+    "text": "hoy voy  a hacer un pastel con este cuchillo",
+    "image_path": "storage\\images\\raul_20260413101432662100.png",
+    "created_at": "2026-04-13T10:14:32.666108+00:00",
+    "status": "REVISION_HUMANA",
+    "moderation_reason": "No se detectaron categorías de riesgo.",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-13T10:14:40.635006",
+        "output": {
+          "labels": [],
+          "confidence": 0.0,
+          "signals": [
+            "Se ve un cuchillo de cocina con mango de madera y hoja metálica, sin personas ni elementos adicionales.",
+            "No se detecta contenido de riesgo según la política. El texto no contiene lenguaje violento, amenazante, ni hace referencia a actividades peligrosas o inapropiadas. La imagen muestra un objeto común de cocina sin contexto que sugiera riesgo.",
+            "El texto menciona la intención de usar el cuchillo para hacer un pastel, lo cual es coherente con el uso típico de este tipo de utensilio de cocina.",
+            "input_type:multimodal"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-13T10:14:40.678908",
+        "output": {
+          "proposed_status": "APROBADO",
+          "reason": "No se detectaron categorías de riesgo."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-13T10:14:42.851929",
+        "output": {
+          "final_status": "REVISION_HUMANA",
+          "risk_notes": [
+            "Activado por regla de seguridad de confianza/datos."
+          ]
         }
       }
     ],

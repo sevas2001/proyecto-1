@@ -1,0 +1,64 @@
+Actúa como ingeniero senior experto en IA multimodal y arquitectura multiagente.
+
+Contexto:
+El sistema actual modera texto usando:
+- AgentClassifier
+- AgentDecider
+- AgentReviewer
+- policy.yaml
+
+Ahora los posts pueden incluir:
+- text
+- image_path (opcional)
+
+OBJETIVO:
+Actualizar AgentClassifier para que utilice un modelo multimodal
+(GPT-4o o equivalente) que analice texto e imagen conjuntamente
+en una sola llamada cuando ambos existan.
+
+REQUISITOS:
+
+1) Si hay texto + imagen:
+   - Enviar ambos al modelo en la misma request.
+   - Pedir clasificación en las categorías de policy.yaml.
+   - El modelo debe devolver:
+        labels
+        confidence
+        reason
+
+2) Si solo hay texto:
+   - Mantener comportamiento actual.
+
+3) Si solo hay imagen:
+   - Analizar solo imagen.
+
+4) Mantener EXACTAMENTE el mismo formato de salida
+   que el classifier actual para no romper el sistema.
+
+5) Añadir al trace:
+   - input_type: text | image | multimodal
+   - labels_detected
+   - confidence
+   - reasoning
+
+6) No modificar:
+   - Orchestrator
+   - Decider
+   - Reviewer
+   - policy.yaml
+   - posts.jsonl
+
+7) Manejo de errores:
+   - Si falla imagen → continuar con texto.
+   - No romper flujo.
+
+8) Código limpio:
+   - Crear función interna:
+        _analyze_multimodal(text, image_path)
+   - Integrarla en classify().
+
+ENTREGABLE:
+- Código completo actualizado de AgentClassifier.
+- Solo cambios necesarios.
+- Comentado.
+- Compatible con sistema actual.

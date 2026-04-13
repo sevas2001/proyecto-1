@@ -1,0 +1,63 @@
+Necesito que refactorices el sistema de moderación multi‑agente actual para reducir el exceso de casos enviados a REVISION_HUMANA.
+
+El proyecto ya está completamente implementado y funcional.
+NO debes reestructurar carpetas ni romper la arquitectura existente.
+Solo debes ajustar lógica interna, scoring y thresholds.
+
+OBJETIVO PRINCIPAL:
+Reducir falsos positivos de REVISION_HUMANA sin comprometer seguridad en casos de violencia real o alto riesgo.
+
+PROBLEMA ACTUAL:
+- Casi todos los casos con etiquetas terminan en REVISION_HUMANA.
+- El scoring heurístico genera confidencias demasiado bajas (~0.3–0.4).
+- Los thresholds clasifican demasiados casos como "low".
+- El AgentReviewer fuerza revisión con demasiada facilidad.
+
+MODIFICACIONES REQUERIDAS:
+
+1) Ajustar scoring del AgentClassifier:
+   - Keywords fuertes deben aportar al menos 0.4.
+   - Regex sensibles (ej: datos personales) deben aportar al menos 0.6.
+   - Permitir acumulación ponderada hasta máximo 1.0.
+   - Si múltiples señales de la misma categoría, aumentar ligeramente el peso.
+   - Mantener estructura actual del agente.
+
+2) Ajustar thresholds en policy.yaml:
+   - low_confidence_threshold ≈ 0.3
+   - high_risk_threshold ≈ 0.75
+   - Asegurar que 0.4 ya no se considere "low".
+
+3) Mejorar lógica de AgentDecider:
+   - Determinar correctamente nivel: low / medium / high.
+   - Aplicar action según severity definida en policy.yaml.
+   - Permitir que:
+       violencia explícita con confianza >= 0.7 → RECHAZADO automático.
+   - Mantener compatibilidad con el estado actual (no cambiar estructura del state).
+
+4) Simplificar AgentReviewer:
+   - Solo forzar REVISION_HUMANA si:
+       a) confidence < low_confidence_threshold y hay etiquetas.
+       b) categoría contiene "datos_personales".
+   - NO forzar revisión automáticamente para todos los casos medium.
+   - Respetar decisiones de RECHAZADO de alto riesgo.
+
+5) No modificar:
+   - Orquestador
+   - Estructura de LangGraph
+   - Tipado del estado
+   - Sistema de logs
+
+6) Mantener trazabilidad en trace.
+
+RESULTADO ESPERADO TRAS CAMBIOS:
+
+- Texto limpio → APROBADO
+- Spam leve → REVISION_HUMANA
+- “Te voy a matar” → RECHAZADO
+- Email detectado → REVISION_HUMANA
+- Caso ambiguo → REVISION_HUMANA
+
+Devuélveme:
+- Archivos modificados completos.
+- Explicación breve de qué cambiaste y por qué.
+- Confirmación de que no se rompe la arquitectura existente.

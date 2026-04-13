@@ -1,0 +1,47 @@
+Actúa como arquitecto de software senior especializado en sistemas multi-agente.
+
+Voy a proporcionarte los siguientes archivos del proyecto:
+
+- orchestrator.py
+- agent_classifier.py
+- agent_decider.py
+- agent_reviewer.py
+- policy.yaml
+- requirements.txt (opcional)
+
+Tu tarea es generar una documentación técnica formal del sistema de moderación multi-agente.
+
+La documentación debe incluir obligatoriamente:
+
+1) DESCRIPCIÓN DE LOS AGENTES
+   - Rol de cada agente
+   - Responsabilidades
+   - Entrada y salida
+   - Tecnologías utilizadas
+   - Tipo de agente (analítico, normativo, validación, etc.)
+
+2) DIAGRAMA DE ORQUESTACIÓN
+   - Diagrama en formato Mermaid
+   - Explicación del flujo
+   - Explicación del estado compartido
+   - Explicación del papel del orchestrator
+   - Justificación del uso de LangGraph
+
+3) JUSTIFICACIÓN DE DECISIONES DE DISEÑO
+   - Por qué arquitectura multi-agente
+   - Por qué orquestación lineal
+   - Por qué separación de responsabilidades
+   - Por qué política externa (policy.yaml)
+   - Por qué trazabilidad mediante logs
+   - Por qué degradación a revisión humana en caso de error
+
+El documento debe:
+
+- Tener estructura formal.
+- Usar lenguaje académico.
+- Ser claro y técnico.
+- Estar preparado para una entrega universitaria.
+- No incluir código innecesario.
+- No repetir contenido trivial.
+
+Genera el documento completo listo para entregar en formato Markdown.

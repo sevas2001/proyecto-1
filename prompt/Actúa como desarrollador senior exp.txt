@@ -1,0 +1,188 @@
+Actúa como desarrollador senior experto en Streamlit, SQLite y diseño de sistemas con control de roles.
+
+Contexto:
+Existe una aplicación Streamlit funcional en app/app.py.
+No debes romper la lógica actual (moderación, persistencia de posts, etc.).
+Debes ampliar la aplicación con autenticación, roles y sistema de reputación de usuario.
+
+NO reestructures el proyecto.
+NO elimines funcionalidades existentes.
+Integra todo de forma limpia y modular.
+
+========================================
+OBJETIVO GENERAL
+========================================
+
+Implementar:
+
+1) Sistema de autenticación (login + registro)
+2) Base de datos SQLite persistente (users.db)
+3) Sistema de roles (admin / usuario)
+4) Sistema de reputación basado en posts rechazados
+5) Sistema de alerta y baneo automático
+6) Control de acceso por rol a pestañas
+7) Feed que excluya posts propios
+8) Nueva pestaña "Mis posts"
+
+========================================
+REQUISITOS DETALLADOS
+========================================
+
+----------------------------------------
+1) AUTENTICACIÓN
+----------------------------------------
+
+Nueva pestaña: "Autenticación"
+
+LOGIN:
+- Usuario
+- Contraseña
+- Botón "Iniciar sesión"
+- Botón "Registrarse"
+
+REGISTRO:
+- Usuario (único)
+- Contraseña
+- Botón "Crear cuenta"
+- Botón "Volver al login"
+
+NO se requiere correo electrónico.
+
+----------------------------------------
+2) BASE DE DATOS SQLite
+----------------------------------------
+
+Crear archivo users.db en la raíz del proyecto.
+
+Tabla users:
+
+- id INTEGER PRIMARY KEY
+- username TEXT UNIQUE
+- password_hash TEXT
+- role TEXT (admin | user)
+- approved_count INTEGER DEFAULT 0
+- rejected_count INTEGER DEFAULT 0
+- status TEXT (normal | alerta | advertencia_final | baneado)
+
+Crear tabla automáticamente si no existe.
+
+Contraseñas:
+- NO guardar en texto plano
+- Usar hashlib.sha256
+
+----------------------------------------
+3) SISTEMA DE REPUTACIÓN
+----------------------------------------
+
+Cada vez que se modere un post:
+
+Si status == APROBADO:
+    approved_count += 1
+
+Si status == RECHAZADO:
+    rejected_count += 1
+
+Clasificación automática:
+
+0 – 4 rechazados:
+    status = "normal"
+
+5 – 9 rechazados:
+    status = "alerta"
+
+10 rechazados:
+    status = "advertencia_final"
+    → Antes de publicar mostrar mensaje:
+      "Al próximo rechazo tu cuenta será bloqueada."
+
+11 rechazados:
+    status = "baneado"
+    → No permitir login
+    → Mostrar mensaje: "Cuenta bloqueada por reiteradas infracciones."
+
+----------------------------------------
+4) CONTROL DE ACCESO POR ROL
+----------------------------------------
+
+Role = "admin":
+    Puede ver:
+        - Pestaña Moderación
+        - Pestaña Auditoría
+
+Role = "user":
+    NO puede acceder a:
+        - Moderación
+        - Auditoría
+
+Si intenta acceder, mostrar mensaje de acceso restringido.
+
+----------------------------------------
+5) FEED
+----------------------------------------
+
+En la pestaña Feed:
+- Mostrar solo posts APROBADOS
+- NO mostrar posts del usuario logueado
+
+----------------------------------------
+6) NUEVA PESTAÑA: "Mis Posts"
+----------------------------------------
+
+Mostrar:
+- Todos los posts creados por el usuario actual
+- Mostrar status
+- Mostrar motivo de moderación
+- Mostrar conteo de aprobados y rechazados
+- Mostrar categoría actual (normal / alerta / advertencia_final)
+
+----------------------------------------
+7) SESIONES
+----------------------------------------
+
+Usar st.session_state para:
+- username
+- role
+- status
+- autenticado (True/False)
+
+----------------------------------------
+8) MODULARIDAD
+----------------------------------------
+
+Crear funciones separadas:
+
+- create_users_table()
+- hash_password()
+- register_user()
+- login_user()
+- update_user_stats()
+- update_user_status()
+- is_user_banned()
+
+Mantener código limpio y comentado.
+
+----------------------------------------
+9) USUARIO ADMIN POR DEFECTO
+----------------------------------------
+
+Al crear la base de datos por primera vez:
+Crear usuario:
+    username: admin
+    password: admin123
+    role: admin
+
+----------------------------------------
+ENTREGABLE
+----------------------------------------
+
+Devuélveme:
+
+1) El bloque completo actualizado de app.py
+2) Código SQLite necesario
+3) Funciones nuevas claramente separadas
+4) Comentarios explicativos
+5) Confirmación de que no rompe el sistema de moderación existente
+
+El código debe ser ejecutable directamente.
+No expliques demasiado.
+Prioriza claridad, seguridad y coherencia.
