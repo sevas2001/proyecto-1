@@ -529,8 +529,15 @@ with tab_objs[0]:
                 texto,
                 uploaded_file
             )
+
+            # Mostrar estado final como ICONO+TEXTO, por ejemplo:
+            # RECHAZADO       -> 🔴RECHAZADO
+            # APROBADO        -> 🟢APROBADO
+            # REVISION_HUMANA -> 🟡REVISION HUMANA
             emoji = ESTADO_EMOJI.get(post["status"], "⚪")
-            st.success(f"Estado: {emoji} {post['status']}")
+            texto_estado = post["status"].replace("_", " ")
+
+            st.success(f"Estado: {emoji}{texto_estado}")
             st.info(post["moderation_reason"])
 
 # ---------------------------------------------------------------------
@@ -563,7 +570,9 @@ if st.session_state.authenticated:
         st.write(f"Aprobados: {approved} | Rechazados: {rejected} | Estado: {status}")
 
         for p in propios:
-            st.markdown(f"**{p['status']}** - {p['text']}")
+            emoji = ESTADO_EMOJI.get(p["status"], "⚪")
+            texto_estado = p["status"].replace("_", " ")
+            st.markdown(f"**{emoji}{texto_estado}** - {p['text']}")
 
 # ---------------------------------------------------------------------
 # TAB MODERACIÓN (ADMIN)

@@ -292,5 +292,555 @@
       }
     ],
     "human_review": null
+  },
+  "522d76d6-7a24-48db-a024-7de7cfc4df82": {
+    "id": "522d76d6-7a24-48db-a024-7de7cfc4df82",
+    "user": "peter",
+    "text": "te voy a matar",
+    "image_path": "storage\\images\\peter_20260413072349914075.png",
+    "created_at": "2026-04-13T07:23:49.921224+00:00",
+    "status": "RECHAZADO",
+    "moderation_reason": "El post fue clasificado bajo la categoría 'acoso_amenazas' con una confianza de 0.95, lo que indica un riesgo alto. Según la política de umbrales, los posts con riesgo alto (confianza >= 0.85) suelen ser rechazados. Además, la política de categorías para 'acoso_amenazas' establece que los contenidos con riesgo alto deben ser rechazados debido a la gravedad de la categoría y su impacto potencial. Por lo tanto, se decide rechazar el post para prevenir posibles daños o amenazas hacia otros usuarios.",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-13T07:24:03.124365",
+        "output": {
+          "labels": [
+            "acoso_amenazas"
+          ],
+          "confidence": 0.95,
+          "signals": [
+            "regex_violencia",
+            "El texto contiene una amenaza explícita de violencia hacia otra persona.",
+            "keyword_acoso_amenazas",
+            "regex_acoso_amenazas",
+            "input_type:text_fallback"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-13T07:24:06.664490",
+        "output": {
+          "proposed_status": "RECHAZADO",
+          "reason": "El post fue clasificado bajo la categoría 'acoso_amenazas' con una confianza de 0.95, lo que indica un riesgo alto. Según la política de umbrales, los posts con riesgo alto (confianza >= 0.85) suelen ser rechazados. Además, la política de categorías para 'acoso_amenazas' establece que los contenidos con riesgo alto deben ser rechazados debido a la gravedad de la categoría y su impacto potencial. Por lo tanto, se decide rechazar el post para prevenir posibles daños o amenazas hacia otros usuarios."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-13T07:24:07.761152",
+        "output": {
+          "final_status": "RECHAZADO",
+          "risk_notes": []
+        }
+      }
+    ],
+    "human_review": null
+  },
+  "4965250f-9635-4a62-ba1f-db817311873c": {
+    "id": "4965250f-9635-4a62-ba1f-db817311873c",
+    "user": "peter",
+    "text": "mañana te espero",
+    "image_path": "storage\\images\\peter_20260413072418461776.png",
+    "created_at": "2026-04-13T07:24:18.469883+00:00",
+    "status": "RECHAZADO",
+    "moderation_reason": "Decisión manual del administrador",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-13T07:24:28.132798",
+        "output": {
+          "labels": [],
+          "confidence": 0.0,
+          "signals": [
+            "llm_error: unhashable type: 'dict'",
+            "input_type:multimodal"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-13T07:24:28.153020",
+        "output": {
+          "proposed_status": "APROBADO",
+          "reason": "No se detectaron categorías de riesgo."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-13T07:24:30.586424",
+        "output": {
+          "final_status": "REVISION_HUMANA",
+          "risk_notes": [
+            "Se detectó un error en el sistema ('llm_error: unhashable type: dict'), lo que indica incertidumbre en el contexto.",
+            "El input es de tipo multimodal, lo que puede incluir datos personales sensibles o información difícil de interpretar automáticamente.",
+            "Activado por regla de seguridad de confianza/datos."
+          ]
+        }
+      }
+    ],
+    "human_review": null,
+    "admin_decision": {
+      "admin_username": "raul",
+      "decision": "RECHAZADO",
+      "justificacion": "amenazas",
+      "timestamp": "2026-04-13T07:51:40.846706+00:00"
+    }
+  },
+  "cd737a9f-1527-442b-8f4b-179f87eba606": {
+    "id": "cd737a9f-1527-442b-8f4b-179f87eba606",
+    "user": "peter",
+    "text": "mira lo que tengo para ti",
+    "image_path": "storage\\images\\peter_20260413072511715569.png",
+    "created_at": "2026-04-13T07:25:11.720465+00:00",
+    "status": "REVISION_HUMANA",
+    "moderation_reason": "No se detectaron categorías de riesgo.",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-13T07:25:20.543206",
+        "output": {
+          "labels": [],
+          "confidence": 0.0,
+          "signals": [
+            "llm_error: unhashable type: 'dict'",
+            "input_type:multimodal"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-13T07:25:20.565396",
+        "output": {
+          "proposed_status": "APROBADO",
+          "reason": "No se detectaron categorías de riesgo."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-13T07:25:22.854007",
+        "output": {
+          "final_status": "REVISION_HUMANA",
+          "risk_notes": [
+            "Se detectó un error en el sistema ('llm_error: unhashable type: dict'), lo que indica incertidumbre en el contexto.",
+            "El input es de tipo multimodal, lo que puede incluir datos personales sensibles o información difícil de interpretar automáticamente.",
+            "Activado por regla de seguridad de confianza/datos."
+          ]
+        }
+      }
+    ],
+    "human_review": null
+  },
+  "9d083182-30b9-4310-8724-b415547edda5": {
+    "id": "9d083182-30b9-4310-8724-b415547edda5",
+    "user": "peter",
+    "text": "hoy he hecho una rectea de pan y lo corte con este cuchillo",
+    "image_path": "storage\\images\\peter_20260413072604436992.png",
+    "created_at": "2026-04-13T07:26:04.444403+00:00",
+    "status": "APROBADO",
+    "moderation_reason": "No se detectaron categorías de riesgo.",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-13T07:26:09.168361",
+        "output": {
+          "labels": [],
+          "confidence": 1.0,
+          "signals": [
+            "input_type:multimodal"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-13T07:26:09.194705",
+        "output": {
+          "proposed_status": "APROBADO",
+          "reason": "No se detectaron categorías de riesgo."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-13T07:26:10.484913",
+        "output": {
+          "final_status": "APROBADO",
+          "risk_notes": []
+        }
+      }
+    ],
+    "human_review": null
+  },
+  "8ccf119e-acd7-444d-a209-95f9ab5e03ee": {
+    "id": "8ccf119e-acd7-444d-a209-95f9ab5e03ee",
+    "user": "raul",
+    "text": "mañana te espero",
+    "image_path": "storage\\images\\raul_20260413073238445732.png",
+    "created_at": "2026-04-13T07:32:38.452615+00:00",
+    "status": "STATUS_FINAL",
+    "moderation_reason": "El post fue clasificado con las etiquetas 'violencia' y 'acoso_amenazas', ambas categorías con una severidad alta según la política. La confianza detectada es de 0.95, lo que supera el umbral de 0.85 para riesgo alto. Según la política de umbrales, los posts con riesgo alto suelen ser rechazados, y las acciones definidas para estas categorías en niveles de riesgo alto también indican 'RECHAZADO'. Por lo tanto, se toma la decisión de rechazar el post para garantizar la seguridad y cumplimiento de las normas de moderación.",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-13T07:32:44.303739",
+        "output": {
+          "labels": [
+            "violencia",
+            "acoso_amenazas"
+          ],
+          "confidence": 0.95,
+          "signals": [
+            "imagen de un cuchillo",
+            "texto con posible tono amenazante",
+            "input_type:multimodal"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-13T07:32:48.560634",
+        "output": {
+          "proposed_status": "RECHAZADO",
+          "reason": "El post fue clasificado con las etiquetas 'violencia' y 'acoso_amenazas', ambas categorías con una severidad alta según la política. La confianza detectada es de 0.95, lo que supera el umbral de 0.85 para riesgo alto. Según la política de umbrales, los posts con riesgo alto suelen ser rechazados, y las acciones definidas para estas categorías en niveles de riesgo alto también indican 'RECHAZADO'. Por lo tanto, se toma la decisión de rechazar el post para garantizar la seguridad y cumplimiento de las normas de moderación."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-13T07:32:50.273696",
+        "output": {
+          "final_status": "STATUS_FINAL",
+          "risk_notes": []
+        }
+      }
+    ],
+    "human_review": null
+  },
+  "a75b11f4-8736-484b-b326-728440225b8f": {
+    "id": "a75b11f4-8736-484b-b326-728440225b8f",
+    "user": "peter",
+    "text": "mañana te espero",
+    "image_path": "storage\\images\\peter_20260413074137506520.png",
+    "created_at": "2026-04-13T07:41:37.518767+00:00",
+    "status": "RECHAZADO",
+    "moderation_reason": "El post fue clasificado con etiquetas de 'violencia' y 'acoso_amenazas', ambas categorías con una severidad alta según la política. La confianza detectada es de 0.95, lo que supera el umbral de riesgo alto (>= 0.85). Según la política de acción para estas categorías, los posts con riesgo alto deben ser rechazados. Dado que ambas etiquetas tienen acciones consistentes en este nivel de riesgo, se decide rechazar el post para prevenir la propagación de contenido dañino.",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-13T07:41:44.511161",
+        "output": {
+          "labels": [
+            "violencia",
+            "acoso_amenazas"
+          ],
+          "confidence": 0.95,
+          "signals": [
+            "imagen de un cuchillo",
+            "texto con posible amenaza implícita",
+            "input_type:multimodal"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-13T07:41:47.731234",
+        "output": {
+          "proposed_status": "RECHAZADO",
+          "reason": "El post fue clasificado con etiquetas de 'violencia' y 'acoso_amenazas', ambas categorías con una severidad alta según la política. La confianza detectada es de 0.95, lo que supera el umbral de riesgo alto (>= 0.85). Según la política de acción para estas categorías, los posts con riesgo alto deben ser rechazados. Dado que ambas etiquetas tienen acciones consistentes en este nivel de riesgo, se decide rechazar el post para prevenir la propagación de contenido dañino."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-13T07:41:48.775176",
+        "output": {
+          "final_status": "RECHAZADO",
+          "risk_notes": []
+        }
+      }
+    ],
+    "human_review": null
+  },
+  "62f479a1-8d9f-42d0-b371-8b369d824b86": {
+    "id": "62f479a1-8d9f-42d0-b371-8b369d824b86",
+    "user": "peter",
+    "text": "hoy he hecho una recta de pan con este cuchillo",
+    "image_path": "storage\\images\\peter_20260413074738707688.png",
+    "created_at": "2026-04-13T07:47:38.716052+00:00",
+    "status": "APROBADO",
+    "moderation_reason": "No se detectaron categorías de riesgo.",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-13T07:47:45.257789",
+        "output": {
+          "labels": [],
+          "confidence": 1.0,
+          "signals": [
+            "input_type:multimodal"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-13T07:47:45.305362",
+        "output": {
+          "proposed_status": "APROBADO",
+          "reason": "No se detectaron categorías de riesgo."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-13T07:47:46.523549",
+        "output": {
+          "final_status": "APROBADO",
+          "risk_notes": []
+        }
+      }
+    ],
+    "human_review": null
+  },
+  "a1e43f2b-3117-4c9a-8914-7cdb56735be7": {
+    "id": "a1e43f2b-3117-4c9a-8914-7cdb56735be7",
+    "user": "peter",
+    "text": "no me gusta el color marron\n",
+    "image_path": null,
+    "created_at": "2026-04-13T07:49:36.891224+00:00",
+    "status": "APROBADO",
+    "moderation_reason": "No se detectaron categorías de riesgo.",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-13T07:49:39.015812",
+        "output": {
+          "labels": [],
+          "confidence": 1.0,
+          "signals": [
+            "El texto no contiene elementos que infrinjan las categorías de la política.",
+            "input_type:text"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-13T07:49:39.059018",
+        "output": {
+          "proposed_status": "APROBADO",
+          "reason": "No se detectaron categorías de riesgo."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-13T07:49:40.066991",
+        "output": {
+          "final_status": "APROBADO",
+          "risk_notes": []
+        }
+      }
+    ],
+    "human_review": null
+  },
+  "bec8bf67-e4be-4b65-b3a4-0d0255352b7f": {
+    "id": "bec8bf67-e4be-4b65-b3a4-0d0255352b7f",
+    "user": "peter",
+    "text": "no me gusta el color marron",
+    "image_path": "storage\\images\\peter_20260413074957581294.jpg",
+    "created_at": "2026-04-13T07:49:57.588816+00:00",
+    "status": "REVISION_HUMANA",
+    "moderation_reason": "No se detectaron categorías de riesgo.",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-13T07:50:04.406916",
+        "output": {
+          "labels": [],
+          "confidence": 0.0,
+          "signals": [
+            "input_type:multimodal"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-13T07:50:04.424370",
+        "output": {
+          "proposed_status": "APROBADO",
+          "reason": "No se detectaron categorías de riesgo."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-13T07:50:06.793480",
+        "output": {
+          "final_status": "REVISION_HUMANA",
+          "risk_notes": [
+            "La clasificación tiene una confianza de 0.0, lo que indica incertidumbre en el contexto.",
+            "El input es de tipo multimodal, lo que puede incluir datos personales sensibles o ambigüedad en el tono.",
+            "Activado por regla de seguridad de confianza/datos."
+          ]
+        }
+      }
+    ],
+    "human_review": null
+  },
+  "03bb134b-217e-48e6-8536-f901d8397c78": {
+    "id": "03bb134b-217e-48e6-8536-f901d8397c78",
+    "user": "peter",
+    "text": "no me gusta el color marron",
+    "image_path": "storage\\images\\peter_20260413075831042574.jpg",
+    "created_at": "2026-04-13T07:58:31.049514+00:00",
+    "status": "APROBADO",
+    "moderation_reason": "No se detectaron categorías de riesgo.",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-13T07:58:38.193522",
+        "output": {
+          "labels": [],
+          "confidence": 1.0,
+          "signals": [
+            "input_type:multimodal"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-13T07:58:38.217521",
+        "output": {
+          "proposed_status": "APROBADO",
+          "reason": "No se detectaron categorías de riesgo."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-13T07:58:39.758344",
+        "output": {
+          "final_status": "APROBADO",
+          "risk_notes": []
+        }
+      }
+    ],
+    "human_review": null
+  },
+  "9bbf2690-e390-4f86-be8b-8c908a79f9f0": {
+    "id": "9bbf2690-e390-4f86-be8b-8c908a79f9f0",
+    "user": "peter",
+    "text": "no me gusta su color marron",
+    "image_path": "storage\\images\\peter_20260413080440601255.jpg",
+    "created_at": "2026-04-13T08:04:40.615636+00:00",
+    "status": "RECHAZADO",
+    "moderation_reason": "El post fue clasificado bajo la categoría 'odio' con una confianza de 0.85, lo que indica un riesgo alto. Según la política de umbrales, los posts con riesgo alto suelen ser rechazados. Además, la política de categorías para 'odio' establece que los contenidos con riesgo alto deben ser rechazados debido a la gravedad de la categoría y su impacto potencial. Por lo tanto, se toma la decisión de rechazar el post para prevenir la propagación de contenido dañino.",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-13T08:04:47.714203",
+        "output": {
+          "labels": [
+            "odio"
+          ],
+          "confidence": 0.85,
+          "signals": [
+            "comentario despectivo relacionado con el color",
+            "input_type:multimodal"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-13T08:04:51.840995",
+        "output": {
+          "proposed_status": "RECHAZADO",
+          "reason": "El post fue clasificado bajo la categoría 'odio' con una confianza de 0.85, lo que indica un riesgo alto. Según la política de umbrales, los posts con riesgo alto suelen ser rechazados. Además, la política de categorías para 'odio' establece que los contenidos con riesgo alto deben ser rechazados debido a la gravedad de la categoría y su impacto potencial. Por lo tanto, se toma la decisión de rechazar el post para prevenir la propagación de contenido dañino."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-13T08:04:53.566033",
+        "output": {
+          "final_status": "RECHAZADO",
+          "risk_notes": []
+        }
+      }
+    ],
+    "human_review": null
+  },
+  "a3bf3e84-3980-4158-93a9-8d108204687b": {
+    "id": "a3bf3e84-3980-4158-93a9-8d108204687b",
+    "user": "peter",
+    "text": "no me gusta su color marron",
+    "image_path": "storage\\images\\peter_20260413080557480966.jpg",
+    "created_at": "2026-04-13T08:05:57.487868+00:00",
+    "status": "APROBADO",
+    "moderation_reason": "No se detectaron categorías de riesgo.",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-13T08:06:03.325070",
+        "output": {
+          "labels": [],
+          "confidence": 1.0,
+          "signals": [
+            "input_type:multimodal"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-13T08:06:03.393132",
+        "output": {
+          "proposed_status": "APROBADO",
+          "reason": "No se detectaron categorías de riesgo."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-13T08:06:04.841650",
+        "output": {
+          "final_status": "APROBADO",
+          "risk_notes": []
+        }
+      }
+    ],
+    "human_review": null
+  },
+  "5d0712dc-0a70-47ca-840f-d1927fd542d3": {
+    "id": "5d0712dc-0a70-47ca-840f-d1927fd542d3",
+    "user": "peter",
+    "text": "no me gusta su color marron",
+    "image_path": "storage\\images\\peter_20260413081204407810.jpg",
+    "created_at": "2026-04-13T08:12:04.417502+00:00",
+    "status": "APROBADO",
+    "moderation_reason": "No se detectaron categorías de riesgo.",
+    "trace": [
+      {
+        "stage": "classifier",
+        "timestamp": "2026-04-13T08:12:12.148341",
+        "output": {
+          "labels": [],
+          "confidence": 1.0,
+          "signals": [
+            "No se detecta contenido de riesgo según la política, ya que el comentario no contiene insultos, lenguaje de odio, acoso, amenazas ni referencias sexuales, violentas o a datos personales.",
+            "El texto hace referencia al color marrón, que parece estar relacionado con el objeto mostrado en la imagen (la mesa).",
+            "Se ve una mesa marrón de madera con una silla y un pequeño jarrón con plantas encima, en un entorno minimalista.",
+            "input_type:multimodal"
+          ]
+        }
+      },
+      {
+        "stage": "decider",
+        "timestamp": "2026-04-13T08:12:12.195751",
+        "output": {
+          "proposed_status": "APROBADO",
+          "reason": "No se detectaron categorías de riesgo."
+        }
+      },
+      {
+        "stage": "reviewer",
+        "timestamp": "2026-04-13T08:12:13.629682",
+        "output": {
+          "final_status": "APROBADO",
+          "risk_notes": []
+        }
+      }
+    ],
+    "human_review": null
   }
 }

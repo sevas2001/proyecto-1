@@ -1,11 +1,13 @@
 import re
 import yaml
 import base64
+import json
 from typing import Dict, Any, List
 
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
 from langchain_core.output_parsers import JsonOutputParser
+from langchain_core.messages import HumanMessage
 from dotenv import load_dotenv
 import os
 
@@ -104,48 +106,73 @@ class AgentClassifier:
     def _analyze_multimodal(self, text: str, image_path: str) -> Dict[str, Any]:
         """
         Analiza texto + imagen en una sola request GPT‑4o.
+        Devuelve siempre un dict con:
+        {
+            "labels": [...],
+            "confidence": float,
+            "signals": [...]
+        }
         """
         categories_str = ", ".join(self.policy["categories"].keys())
-
         image_b64 = self._encode_image_base64(image_path)
 
-        messages = [
+        content = [
             {
-                "role": "user",
-                "content": [
-                    {
-                        "type": "text",
-                        "text": f"""
-                        Eres un experto en moderación de contenido.
+                "type": "text",
+                "text": f"""
+                Eres un experto en moderación de contenido.
 
-                        POLÍTICA:
-                        {categories_str}
+                POLÍTICA (categorías de riesgo disponibles):
+                {categories_str}
 
-                        Analiza el texto y la imagen conjuntamente.
-                        Devuelve JSON con:
-                        {{
-                            "labels": [],
-                            "confidence": 0.0,
-                            "signals": []
-                        }}
+                TAREA:
+                1. Analiza conjuntamente el TEXTO y la IMAGEN.
+                2. Determina si el contenido incumple alguna categoría de la política.
+                3. Explica SIEMPRE por qué tomas la decisión, incluso cuando NO hay riesgo.
 
-                        TEXTO:
-                        {text}
-                        """
-                    },
-                    {
-                        "type": "image_url",
-                        "image_url": {
-                            "url": f"data:image/jpeg;base64,{image_b64}"
-                        }
-                    }
-                ]
+                Devuelve ÚNICAMENTE un JSON con esta estructura:
+                {{
+                    "labels": ["lista de categorías aplicables, puede estar vacía"],
+                    "confidence": 0.0,
+                    "signals": [
+                        "Descripción breve de lo que se ve en la imagen (por ejemplo: 'se ve una mesa marrón, sin personas').",
+                        "Explicación de cómo el texto se relaciona con la imagen (por ejemplo: 'el comentario sobre el color parece referirse al objeto, no a una persona o grupo protegido').",
+                        "Motivo de por qué se considera o no contenido de riesgo según la política (por ejemplo: 'no se detectan insultos ni lenguaje de odio')."
+                    ]
+                }}
+
+                TEXTO:
+                {text}
+                """
+            },
+            {
+                "type": "image_url",
+                "image_url": {
+                    "url": f"data:image/jpeg;base64,{image_b64}"
+                }
             }
         ]
 
-        response = self.llm.invoke(messages)
+        # Llamada al modelo con mensaje multimodal
+        response = self.llm.invoke([HumanMessage(content=content)])
 
-        return self.output_parser.invoke(response)
+        # Obtenemos el texto de la respuesta y parseamos JSON
+        raw_text = getattr(response, "content", str(response))
+
+        try:
+            parsed = json.loads(raw_text)
+        except json.JSONDecodeError:
+            # Intento de extraer un bloque JSON si el modelo devuelve texto adicional
+            match = re.search(r'\{.*\}', raw_text, re.DOTALL)
+            if not match:
+                raise ValueError(f"Respuesta no JSON del LLM: {raw_text}")
+            parsed = json.loads(match.group(0))
+
+        return {
+            "labels": parsed.get("labels", []),
+            "confidence": float(parsed.get("confidence", 0.0)),
+            "signals": parsed.get("signals", []),
+        }
 
     # ------------------------------------------------------------------
     # CLASIFICACIÓN PRINCIPAL
